@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <script
+      src="https://kit.fontawesome.com/c231497549.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- <header>
+        <nav>
+            <picture>
+                <a href="../index.html">
+                    <img src="../img/branding/logo_light_horizontal.svg" alt="Logotipo de Funko Shop">
+                </a>
+            </picture>
+  
+            <ul>
+                <li>
+                    <a href="../pages/shop.html">SHOP</a>
+                </li>
+                <li>
+                    <a href="../pages/contact.html">CONTACTO</a>
+                </li>
+                <li>
+                    <a href="../pages/login.html">LOGIN</a>
+                </li>
+                <li>
+                    <a href="../pages/cart.html"><img src="../img/icons/cart-icon.svg" alt="ícono de carrito"></a>
+                </li>
+            </ul>
+        </nav>
+    </header> -->
+
+    <main class="carrito-container container">
+      <h1 class="carrito-title">CARRITO DE COMPRAS</h1>
+      <section class="carrito container">
+        <article class="carrito__content carrito__content-title">
+          <p class="carrito__content-column">detalle del producto</p>
+          <p class="carrito__content-column">cantidad</p>
+          <p class="carrito__content-column">total</p>
+          <p class="carrito__content-column"></p>
+        </article>
+        <article class="carrito__content">
+          <div class="carrito__item">
+            <picture class="carrito__cover">
+              <img src="../img/star-wars/baby-yoda-1.webp" alt="baby yoda" />
+            </picture>
+            <div class="carrito__description">
+              <h2 class="carrito__description-title">Baby Yoda Blueball</h2>
+              <p class="carrito__description-text">Star Wars</p>
+              <p class="carrito__description-price">precio: $1799,99</p>
+            </div>
+          </div>
+          <!--  <div class="carrito__item carrito__item-form">
+                    <input type="text" placeholder="cantidad">
+                    <div class="carrito__item-form-buttons">
+                        <button type="button"><i class="fa-solid fa-square-plus"></i></button>
+                        <button type="button"><i class="fa-solid fa-square-minus"></i></button>
+                    </div>
+                </div>-->
+          <div class="carrito__item-quantity">
+            <input type="text" class="carrito_item-quantity_field" />
+            <div class="carrito_item-quantity_buttons">
+              <button><i class="fa-solid fa-square-plus"></i></button>
+              <button><i class="fa-solid fa-square-minus"></i></button>
+            </div>
+          </div>
+          <div class="carrito__item">
+            <p class="carrito__description-text">$1799,99</p>
+          </div>
+          <div class="carrito__item carrito__trash">
+            <picture>
+              <img
+                src="..\img\icons\delete_trash.svg"
+                alt="Eliminar artículo"
+              />
+            </picture>
+          </div>
+        </article>
+        <article class="carrito__content">
+          <div class="carrito__item">
+            <picture class="carrito__cover">
+              <img src="../img/pokemon/pidgeotto-1.webp" alt="pidgeotto" />
+            </picture>
+            <div class="carrito__description">
+              <h2 class="carrito__description-title">Pidgeotto</h2>
+              <p class="carrito__description-text">Pokemon</p>
+              <p class="carrito__description-price">precio: $1799,99</p>
+            </div>
+          </div>
+          <form action="#" class="carrito__item carrito__item-form">
+            <input type="text" placeholder="cantidad" />
+            <button type="button">
+              <i class="fa-solid fa-square-plus"></i>
+            </button>
+            <button type="button">
+              <i class="fa-solid fa-square-minus"></i>
+            </button>
+          </form>
+          <div class="carrito__item">
+            <p class="carrito__description-text">$1799,99</p>
+          </div>
+          <div class="carrito__item carrito__trash">
+            <picture class="">
+              <img
+                src="..\img\icons\delete_trash.svg"
+                alt="Eliminar artículo"
+              />
+            </picture>
+          </div>
+        </article>
+      </section>
+
+      <section class="pay__container">
+        <div class="pay__checkout">
+          <h2 class="pay__title">RESUMEN</h2>
+          <section class="pay__content">
+            <div class="pay__content-line">
+              <p>cantidad de elementos</p>
+              <p>3</p>
+            </div>
+            <div class="pay__content-line">
+              <p>subtotal</p>
+              <p>$5.399,97</p>
+            </div>
+            <div class="pay__content-line">
+              <p>envío</p>
+              <p>$0,00</p>
+            </div>
+            <div class="pay__content-line">
+              <p>subtotal</p>
+              <p>$5.399,97</p>
+            </div>
+          </section>
+        </div>
+        <section class="pay__button">
+          <a href="" class="pay__link">Ir a pagar</a>
+        </section>
+      </section>
+    </main>
+
+    <!-- <footer>
+        <section>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="../pages/shop.html">SHOP</a>
+                    </li>
+                    <li>
+                        <a href="../pages/register.html">REGISTRARSE</a>
+                    </li>
+                    <li>
+                        <a href="../pages/login.html">LOGIN</a>
+                    </li>
+                    <li>
+                        <a href="../pages/contact.html">CONTACTO</a>
+                    </li>
+                </ul>
+            </nav>
+            <picture>
+                <img src="../img/branding/isotype.svg" alt="Logotipo de Funko Shop">
+            </picture>
+        </section>
+        <p>All rights reserved 2023 - Funkoshop &copy;</p>
+    </footer> -->
+  </body>
+</html>
