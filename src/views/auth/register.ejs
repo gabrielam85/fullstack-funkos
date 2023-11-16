@@ -1,0 +1,75 @@
+<main class="register-container container">
+  <h1 class="register-title">CREA TU CUENTA</h1>
+  <p class="register-subtitle">
+    Completa el formulario para ser parte del mundo de los Funkos
+  </p>
+  <form class="register-form" action="" method="post">
+    <div class="register-item">
+      <label class="register-label" for="nombre">Nombre:</label>
+      <input
+        class="register-text"
+        type="text"
+        name="nombre"
+        id="nombre"
+        required
+        placeholder="John"
+      />
+    </div>
+    <div class="register-item">
+      <label class="register-label" for="apellido">Apellido:</label>
+      <input
+        class="register-text"
+        type="text"
+        name="apellido"
+        id="apellido"
+        required
+        placeholder="Doe"
+      />
+    </div>
+    <div class="register-item">
+      <label class="register-label" for="mail">Email:</label>
+      <input
+        class="register-text"
+        type="email"
+        name="mail"
+        id="mail"
+        required
+        placeholder="johndoe@correo.com"
+      />
+    </div>
+    <div class="register-item">
+      <label class="register-label" for="password">Contraseña:</label>
+      <input
+        class="register-text"
+        type="password"
+        name="password"
+        id="password"
+        required
+      />
+    </div>
+    <div class="register-item">
+      <label class="register-label" for="password-check"
+        >Repita Contraseña:</label
+      >
+      <input
+        class="register-text"
+        type="password"
+        name="password-check"
+        id="password-check"
+        required
+      />
+    </div>
+    <div class="register-actions">
+      <input class="register-submit" type="submit" value="Registrar" />
+      <div>
+        <input type="checkbox" id="TyC" name="TyC" />
+        <label class="register-terminos__text" for="terminos_condiciones"
+          >Acepto
+          <a href="" class="register-terminos__link"
+            >Términos y Condiciones</a
+          ></label
+        >
+      </div>
+    </div>
+  </form>
+</main>

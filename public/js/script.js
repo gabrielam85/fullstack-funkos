@@ -1,8 +1,6 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const filterIcon = document.getElementById("filter-icon");
-    const filterDropdown = document.getElementById("filter-dropdown");
+const menuToggle = document.querySelector('.menu-toggle');
+const menuList = document.querySelector('.navbar__menu');
 
-    filterIcon.addEventListener("click", function() {
-        filterDropdown.classList.toggle("open");
-    });
+menuToggle.addEventListener('click', () => {
+    menuList.classList.toggle('active');
 });
