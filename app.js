@@ -15,8 +15,18 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/src/views'));
 
-// Layout para "/shop", "/index", "/auth"
+// Layout para "/auth"
+app.use('/auth', (req, res, next) => {
+    app.set('layout', 'layouts/mainLayout');
+    next();
+});
+// Layout para "/shop",
 app.use('/shop', (req, res, next) => {
+    app.set('layout', 'layouts/mainLayout');
+    next();
+});
+// Layout para "/index"
+app.use('/', (req, res, next) => {
     app.set('layout', 'layouts/mainLayout');
     next();
 });
