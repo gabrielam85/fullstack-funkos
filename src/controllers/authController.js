@@ -1,6 +1,14 @@
-const authControllers = {
-    login: (req, res) => res.send('Route for Login View'),
-    register: (req, res) => res.send('Route for Register View'),
-}
+const path = require('path');
 
-module.exports = authControllers;
+const login = (req, res) => {
+    res.render(path.resolve(__dirname, '../views/auth/login'));
+};
+
+const register = (req, res) => {
+    res.render(path.resolve(__dirname, '../views/auth/register'));
+};
+
+module.exports = {
+    login,
+    register
+};

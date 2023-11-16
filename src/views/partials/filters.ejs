@@ -1,0 +1,46 @@
+<aside class="shop-aside">
+  <div class="filter-icon" id="filter-icon">
+    <i class="fas fa-filter"></i> Filtros
+  </div>
+  <div class="aside__items" id="filter-dropdown">
+    <div class="aside__item aside__item-search">
+      <h3>buscar</h3>
+      <input type="text" placeholder="item o categoria" id="buscar" />
+    </div>
+
+    <div class="aside__item aside__item-order">
+      <h3>Ordenar por</h3>
+      <select name="orden">
+        <option value="">Seleccionar</option>
+        <option value="menorMayor">Menor a mayor</option>
+        <option value="mayorMenor">Mayor a menor</option>
+        <option value="recent">Más recientes</option>
+      </select>
+    </div>
+
+    <div class="aside__item">
+      <h3>Precio</h3>
+      <div class="aside__input-small">
+        <p class="aside__input-text">MIN</p>
+        <input type="text" placeholder="0" />
+        -
+        <p class="aside__input-text">MAX</p>
+        <input type="text" placeholder="0" />
+      </div>
+    </div>
+
+    <div class="aside__item aside-filtrar__container">
+      <h3>FILTRAR</h3>
+      <div class="aside-filtrar">
+        <label><input type="checkbox" value="nuevos" /> Nuevos</label>
+        <label><input type="checkbox" value="ofertas" /> Ofertas</label>
+        <label
+          ><input type="checkbox" value="edicion-especial" /> Edición
+          Especial</label
+        >
+        <label><input type="checkbox" value="favoritos" /> Favoritos</label>
+      </div>
+    </div>
+    <button id="aside__filter" class="aside__filter-button">Filtrar</button>
+  </div>
+</aside>
