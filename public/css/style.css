@@ -625,6 +625,10 @@ display: none;
   padding-bottom: var(--spacing-8);
 }
 
+.carrito-container{
+  margin-top: var(--spacing-36);
+}
+
 .carrito__content {
   display: grid;
   grid-template-columns: 4fr 2fr 2fr 1fr;
@@ -712,6 +716,11 @@ display: none;
   background-color: transparent;
 }
 
+.carrito_item-quantity_buttons .fa-square-minus:before,
+.carrito_item-quantity_buttons .fa-square-plus:before{
+  font-size: var(--font-xsmall);
+}
+
 .pay__container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -794,7 +803,8 @@ display: none;
 .shop-container {
   display: flex;
   justify-content: flex-start;
-  padding: var(--spacing-12); 
+  padding: var(--spacing-12);
+  margin-top: var(--spacing-36); 
 }
 
 .shop-aside {
@@ -1212,7 +1222,20 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
   text-align: right;
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  /*gap: 20px;*/
+}
+
+.product__table__actions button{
+  border: none;
+  background-color: transparent;
+}
+
+.fa-pen:before, .fa-trash-can:before{
+  font-size: var(--font-small);
+}
+
+.fa-square-plus:before{
+  font-size: var(--font-large);
 }
 
 .add-product__container{
@@ -1443,6 +1466,7 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
    /***** SHOP *****/
    .shop-container{
     flex-direction: column;
+    margin-top: 0;
    }
 
    .filter-icon{

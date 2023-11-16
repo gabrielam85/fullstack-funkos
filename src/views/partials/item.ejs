@@ -1,0 +1,25 @@
+<div class="grid__item">
+  <article class="card-item">
+    <a class="card-item__link" href="">
+      <picture class="card-item__cover">
+        <span class="card-item__tag">Nuevo</span>
+        <img
+          class="card-item__img__front"
+          src="<%= item.urlFront %>"
+          alt="<%= item.altFront %>"
+        />
+        <img
+          class="card-item__img__back"
+          src="<%= item.urlBack %>"
+          alt="<%= item.altBack %>"
+        />
+      </picture>
+      <div class="card-item__content">
+        <p class="card-item__licence"><%= item.categoria %></p>
+        <h4 class="card-item__name"><%= item.nombre %></h4>
+        <p class="card-item__price">$<%= item.precio %>.-</p>
+        <p class="card-item__promo"><%= item.promo %></p>
+      </div>
+    </a>
+  </article>
+</div>

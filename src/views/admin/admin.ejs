@@ -25,136 +25,23 @@
         </tr>
       </thead>
       <tbody class="product__table__body">
+        <% productos.forEach(producto => { %>
         <tr class="product__table__row">
-          <td class="product__table__data">1</td>
-          <td class="product__table__data">STW001001</td>
-          <td class="product__table__data">Baby Yoda Blueball</td>
-          <td class="product__table__data">STAR WARS</td>
+          <td class="product__table__data"><%= producto.id %></td>
+          <td class="product__table__data"><%= producto.codigo %></td>
+          <td class="product__table__data"><%= producto.nombre %></td>
+          <td class="product__table__data"><%= producto.categoria %></td>
           <td class="product__table__actions product__table__data">
-            <i class="fa-solid fa-pen"></i>
-            <i class="fa-solid fa-trash-can"></i>
+            <a href="/admin/edit/<%= producto.id %>"
+              ><button type="button"><i class="fa-solid fa-pen"></i></button
+            ></a>
+            <a href="/admin/delete/<%= producto.id %>"
+              ><button type="button">
+                <i class="fa-solid fa-trash-can"></i></button
+            ></a>
           </td>
         </tr>
-        <tr class="product__table__row">
-          <td class="product__table__data">2</td>
-          <td class="product__table__data">STW001002</td>
-          <td class="product__table__data">Boba Fett Fighter</td>
-          <td class="product__table__data">STAR WARS</td>
-          <td class="product__table__actions product__table__data">
-            <i class="fa-solid fa-pen"></i>
-            <i class="fa-solid fa-trash-can"></i>
-          </td>
-        </tr>
-        <tr class="product__table__row">
-          <td class="product__table__data">3</td>
-          <td class="product__table__data">STW001003</td>
-          <td class="product__table__data">Luke Skylwalker & Grogu</td>
-          <td class="product__table__data">STAR WARS</td>
-          <td class="product__table__actions product__table__data">
-            <i class="fa-solid fa-pen"></i>
-            <i class="fa-solid fa-trash-can"></i>
-          </td>
-        </tr>
-        <tr class="product__table__row">
-          <td class="product__table__data">4</td>
-          <td class="product__table__data">STW001004</td>
-          <td class="product__table__data">Stormtrooper Lightsaber</td>
-          <td class="product__table__data">STAR WARS</td>
-          <td class="product__table__actions product__table__data">
-            <i class="fa-solid fa-pen"></i>
-            <i class="fa-solid fa-trash-can"></i>
-          </td>
-        </tr>
-        <tr class="product__table__row">
-          <td class="product__table__data">5</td>
-          <td class="product__table__data">PKM001001</td>
-          <td class="product__table__data">Charmander Smiley</td>
-          <td class="product__table__data">POKEMON</td>
-          <td class="product__table__actions product__table__data">
-            <i class="fa-solid fa-pen"></i>
-            <i class="fa-solid fa-trash-can"></i>
-          </td>
-        </tr>
-        <tr class="product__table__row">
-          <td class="product__table__data">6</td>
-          <td class="product__table__data">PKM001002</td>
-          <td class="product__table__data">Dragonite Hi!</td>
-          <td class="product__table__data">POKEMON</td>
-          <td class="product__table__actions product__table__data">
-            <i class="fa-solid fa-pen"></i>
-            <i class="fa-solid fa-trash-can"></i>
-          </td>
-        </tr>
-        <tr class="product__table__row">
-          <td class="product__table__data">7</td>
-          <td class="product__table__data">PKM001003</td>
-          <td class="product__table__data">Pidgeotto Flying</td>
-          <td class="product__table__data">POKEMON</td>
-          <td class="product__table__actions product__table__data">
-            <i class="fa-solid fa-pen"></i>
-            <i class="fa-solid fa-trash-can"></i>
-          </td>
-        </tr>
-        <tr class="product__table__row">
-          <td class="product__table__data">8</td>
-          <td class="product__table__data">PKM001004</td>
-          <td class="product__table__data">Pikachu Smiley</td>
-          <td class="product__table__data">POKEMON</td>
-          <td class="product__table__actions product__table__data">
-            <i class="fa-solid fa-pen"></i>
-            <i class="fa-solid fa-trash-can"></i>
-          </td>
-        </tr>
-        <tr class="product__table__row">
-          <td class="product__table__data">9</td>
-          <td class="product__table__data">PKM001005</td>
-          <td class="product__table__data">Vulpix Fancy</td>
-          <td class="product__table__data">POKEMON</td>
-          <td class="product__table__actions product__table__data">
-            <i class="fa-solid fa-pen"></i>
-            <i class="fa-solid fa-trash-can"></i>
-          </td>
-        </tr>
-        <tr class="product__table__row">
-          <td class="product__table__data">10</td>
-          <td class="product__table__data">HPT001001</td>
-          <td class="product__table__data">Harry Potter & Hegwid</td>
-          <td class="product__table__data">HARRY POTTER</td>
-          <td class="product__table__actions product__table__data">
-            <i class="fa-solid fa-pen"></i>
-            <i class="fa-solid fa-trash-can"></i>
-          </td>
-        </tr>
-        <tr class="product__table__row">
-          <td class="product__table__data">11</td>
-          <td class="product__table__data">HPT001002</td>
-          <td class="product__table__data">Herminione Ball Dress</td>
-          <td class="product__table__data">HARRY POTTER</td>
-          <td class="product__table__actions product__table__data">
-            <i class="fa-solid fa-pen"></i>
-            <i class="fa-solid fa-trash-can"></i>
-          </td>
-        </tr>
-        <tr class="product__table__row">
-          <td class="product__table__data">12</td>
-          <td class="product__table__data">HPT001003</td>
-          <td class="product__table__data">Luna Lovegood Lion Mask</td>
-          <td class="product__table__data">HARRY POTTER</td>
-          <td class="product__table__actions product__table__data">
-            <i class="fa-solid fa-pen"></i>
-            <i class="fa-solid fa-trash-can"></i>
-          </td>
-        </tr>
-        <tr class="product__table__row">
-          <td class="product__table__data">13</td>
-          <td class="product__table__data">HPT001004</td>
-          <td class="product__table__data">Snape Patronus</td>
-          <td class="product__table__data">HARRY POTTER</td>
-          <td class="product__table__actions product__table__data">
-            <i class="fa-solid fa-pen"></i>
-            <i class="fa-solid fa-trash-can"></i>
-          </td>
-        </tr>
+        <% }) %>
       </tbody>
     </table>
   </section>
