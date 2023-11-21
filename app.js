@@ -47,7 +47,7 @@ app.use('/admin', adminRoutes);
 app.use('/auth', authRoutes);
 
 app.use((req, res, next) => {
-    res.status(404).render('404', { pageTitle: 'Página no encontrada' });
+    res.status(404).render('404', { titulo: 'Página no encontrada' });
 });
 
 const PORT = 3000;

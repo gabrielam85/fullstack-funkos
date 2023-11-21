@@ -190,6 +190,25 @@
     margin-top: var(--spacing-36);
   }
 
+  /******* 404  *******/
+  .no-find-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 3em;
+    padding: var(--spacing-128) 0;
+  }
+
+  .no-find-title{
+    text-align: center;
+    font-size: var(--font-jumbo);
+  }
+
+  .no-find-text{
+    font-size: var(--font-small);
+  }
+
   /*******  INDEX   ******/
   .hero{
     background-image: url(../img/funkos-banner.webp);
@@ -1326,8 +1345,8 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
         text-align: center;
     }
 
-    footer picture.navbar__logo{
-        width: 20%;
+    footer picture.navbar__logo img{
+        width: 25%;
     }
   
     .footer__copy {
