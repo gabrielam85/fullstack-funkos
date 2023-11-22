@@ -10,6 +10,8 @@ const shopRoutes = require('./src/routes/shopRoutes');
 const adminRoutes = require('./src/routes/adminRoutes');
 const authRoutes = require('./src/routes/authRoutes');
 
+const sequelize = require('./src/models/connection');
+
 app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
@@ -51,6 +53,13 @@ app.use((req, res, next) => {
 });
 
 const PORT = 3000;
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
+    try{
+        await sequelize.authenticate();
+    } catch(error){
+        console.log(error);
+    }
+
     console.log("Servidor corriendo en http://localhost:" + PORT);
 });
+
