@@ -1,11 +1,11 @@
 const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize(
-    'gabrielamoreno_funkoshop',
-    '330590_admin',
-    '!c8rXCm2sFfNdeJ',
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASS,
     {
-        host: 'mysql-gabrielamoreno.alwaysdata.net',
+        host: process.env.DB_HOST,
         dialect: 'mysql',
     }
 );
