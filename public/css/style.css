@@ -9,7 +9,7 @@
     --primary-500: rgba(255,51,51,0.5);
     --primary-300: rgba(255,51,51,0.3);
 
-    --secondary-solid: #1D8485;
+    --secondary-solid: #1D84B5;
     --secondary-900: rgba(29, 132, 181, 0.9);
     --secondary-500: rgba(29, 132, 181, 0.5);
     --secondary-300: rgba(29, 132, 181, 0.3);
@@ -86,6 +86,13 @@
 
   button{
     cursor: pointer;
+    border: none;
+  }
+
+  .button__group{
+    display: flex;
+    flex-direction: column;
+    gap: .22rem;
   }
 
   header, 
@@ -378,7 +385,7 @@
   }
 
   .item__quantity{
-    padding: var(--spacing-8) var(--spacing-12);
+    padding: var(--spacing-2) var(--spacing-8);
     background: var(--dark-bg-solid);
     color: var(--light-bg-solid);
     cursor: pointer;
@@ -390,8 +397,8 @@
     padding: var(--spacing-12) var(--spacing-24);
     font-size: var(--font-xsmall);
     transition: background .3s ease-in-out;
-    border: 1px solid var(--dark-bg-solid);
     cursor: pointer;
+    border: none;
   }
 
   .item__submit:hover{
@@ -658,7 +665,7 @@ display: none;
   background-color: var(--light-bg-solid);
   border-style: 5px solid var(--light-bg-solid);
   border-radius: 15px;
-  box-shadow: var(--spacing-8) var(--spacing-8) var(--spacing-16) grey;
+  box-shadow: 0 0 var(--spacing-16) rgba(128, 128, 128, 0.4);
 }
 
 .carrito__content-title {
@@ -1241,7 +1248,7 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
   text-align: right;
   display: flex;
   justify-content: space-between;
-  /*gap: 20px;*/
+  gap: 20px;
 }
 
 .product__table__actions button{
@@ -1311,7 +1318,7 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
     }
 
     .navbar__logo{
-      width: 60%;
+      width: 50%;
     }
 
     .menu-toggle{
@@ -1367,6 +1374,7 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
 
   .collection__text{
     font-size: var(--font-medium);
+    border-bottom: none;
   }
 
   .slider__title{
@@ -1380,8 +1388,23 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
   .collection__content{
     text-align: center;
   }
+
+  .collection.container{
+    padding-bottom: var(--spacing-28);
+    border-bottom: 2px solid var(--primary-solid);
+  }
+
+  .card-item{
+    padding: var(--spacing-36);
+  }
   
   /***** ITEM ******/
+
+  .item.container{
+    padding-bottom: var(--spacing-28);
+    border-bottom: 2px solid var(--primary-solid);
+  }
+
   .item-container{
     padding: var(--spacing-12);
   }
@@ -1411,7 +1434,8 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
   }
   
   .slider__items{
-   flex-direction: column;
+    gap: var(--spacing-8);
+    justify-content: space-between;
   }
   
   /*******  LOGIN   *****/
@@ -1532,6 +1556,11 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
     text-align: left;
   }
 
+  .grid__item{
+    padding-bottom: var(--spacing-28);
+    border-bottom: 2px solid var(--primary-solid);
+  }
+
   /***** ADMIN ******/
   .admin__container{
     padding: var(--spacing-12);
@@ -1583,10 +1612,7 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
 
   .carrito-title{
     font-size: var(--font-xlarge);
-  }
-
-  .carrito__content{
-    margin: var(--spacing-36) var(--spacing-12);
+    margin: var(--spacing-12);
   }
 
   .carrito__item{
@@ -1628,6 +1654,7 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
   }
 
   .carrito__content{
+    margin: var(--spacing-36) var(--spacing-12);
     box-shadow: var(--spacing-8) var(--spacing-8) var(--spacing-16) lightgrey;
     display: flex;
     flex-direction: column;
