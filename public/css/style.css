@@ -1359,7 +1359,7 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
 
     /******** FOOTER ***********/
     footer{
-        padding: var(--spacing-36);
+        padding: var(--spacing-36) var(--spacing-24) var(--spacing-24);
     }
 
     footer .navbar{
