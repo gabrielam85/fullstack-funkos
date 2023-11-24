@@ -3,7 +3,11 @@ const model_productos = require('../models/Producto');
 
 const index = async (req, res) => {
     try{
-        const productos = await model_productos.findAll();
+        const productos = await model_productos.findAll({ 
+            attributes: ["id", "nombre", "precio", "urlFront", "urlBack", "altFront", "altBack"],
+            order: [['nombre', 'ASC']]
+        });
+
         res.render(path.resolve(__dirname, '../views/index'), { productos });
     } catch(error){
         console.log(error);

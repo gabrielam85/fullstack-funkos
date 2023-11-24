@@ -32,7 +32,9 @@
           Agregar al Carrito
         </button>
       </div>
-      <p class="item__promo"><a>Ver métodos de pago</a> - <%= item.promo %></p>
+      <p class="item__promo">
+        <a>Ver métodos de pago</a> - <%= item.metodo_pago %>
+      </p>
     </article>
   </section>
   <%- include('../partials/slider', { titulo: 'productos relacionados',
