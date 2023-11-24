@@ -12,9 +12,18 @@ const shop = async (req, res) => {
 };
 
 const item = async (req, res) => {
+    const itemId = req.params.id;
+    console.log(itemId);
+
     try{
+        const item = await model_productos.findByPk(itemId);
+        if(!item){
+            res.status(404).send('Producto no encontrado');
+            return;
+        }
+
         const productos = await model_productos.findAll();
-        res.render(path.resolve(__dirname, '../views/shop/item'), { productos });
+        res.render(path.resolve(__dirname, '../views/shop/item'), { productos, item });
     } catch(error){
         console.log(error);
         res.status(500).send(error);

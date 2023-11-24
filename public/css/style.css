@@ -349,6 +349,22 @@
     width: 80%;
   }
 
+.item__cover__front img{
+  animation: fade .7s;
+}
+
+.item__cover__back{
+display: none;
+}
+
+.item__cover:hover .item__cover__back{
+  display: block;
+}
+
+.item__cover:hover .item__cover__front{
+  display: none;
+}
+
   .item__licence{
     font-weight: 500;
     text-transform: uppercase;

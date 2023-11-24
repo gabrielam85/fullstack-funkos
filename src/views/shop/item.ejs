@@ -1,16 +1,22 @@
 <main class="item-container">
   <section class="item container">
     <picture class="item__cover">
-      <img alt="baby yoda" src="/img/star-wars/baby-yoda.webp" />
+      <img
+        class="item__cover__front"
+        src="<%= item.urlFront %>"
+        alt="<%= item.altFront %>"
+      />
+      <img
+        class="item__cover__back"
+        src="<%= item.urlBack %>"
+        alt="<%= item.altBack %>"
+      />
     </picture>
     <article class="item__content">
-      <p class="item__licence">Star Wars</p>
-      <h3 class="item__title">BABY YODA BLUEBALL</h3>
-      <p class="item__text">
-        Figura coleccionable de Baby Yoda (Grogu) - The Mandalorian Saga,
-        edición limitada.
-      </p>
-      <p class="item__price">$ 1799,99</p>
+      <p class="item__licence"><%= item.categoria %></p>
+      <h3 class="item__title"><%= item.nombre %></h3>
+      <p class="item__text"><%= item.altFront %></p>
+      <p class="item__price">$ <%= item.precio %></p>
       <div class="item__cart">
         <button id="subtract" class="item__quantity" type="button">-</button>
         <input
@@ -26,9 +32,7 @@
           Agregar al Carrito
         </button>
       </div>
-      <p class="item__promo">
-        <a>Ver métodos de pago</a> - 3 CUOTAS SIN INTERÉS
-      </p>
+      <p class="item__promo"><a>Ver métodos de pago</a> - <%= item.promo %></p>
     </article>
   </section>
   <%- include('../partials/slider', { titulo: 'productos relacionados',
