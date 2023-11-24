@@ -2,8 +2,8 @@
   <%- include('../partials/filters') %>
   <div class="shop-collection">
     <section class="grid__items">
-      <% items.forEach(item => { %> <%- include('../partials/item', {item}) %>
-      <% }) %>
+      <% productos.forEach(item => { %> <%- include('../partials/item', {item:
+      item}) %> <% }) %>
     </section>
     <form action="#">
       <button type="button"><i class="fa-solid fa-angle-left"></i></button>

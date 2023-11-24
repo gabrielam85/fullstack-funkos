@@ -22,8 +22,25 @@ const Producto = sequelize.define('Producto',{
         type: DataTypes.FLOAT,
         allowNull: true,
     },
+    urlFront: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    urlBack: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    altFront: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    altBack: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
 });
 
+//Para dev, en produccion se comenta
 (async () => {
     await sequelize.sync();
 })();

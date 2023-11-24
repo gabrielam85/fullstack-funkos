@@ -1,14 +1,14 @@
 const path = require('path');
+const model_productos = require('../models/Producto');
 
-const index = (req, res) => {
-    const funkos = [
-        {id: 1, nombre: "funko 1"},
-        {id: 2, nombre: "funko 2"},
-        {id: 3, nombre: "funko 3"},
-        {id: 4, nombre: "funko 4"},
-    ]
-    
-    res.render(path.resolve(__dirname, '../views/index'), funkos);
+const index = async (req, res) => {
+    try{
+        const productos = await model_productos.findAll();
+        res.render(path.resolve(__dirname, '../views/index'), { productos });
+    } catch(error){
+        console.log(error);
+        res.status(500).send(error);
+    }
 };
 
 const contact = (req, res) => {

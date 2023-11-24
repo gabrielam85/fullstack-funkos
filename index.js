@@ -58,7 +58,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, async () => {
     try{
         await sequelize.authenticate();
-    } catch(error){
+    }   catch(error){
         console.log(error);
     }
 

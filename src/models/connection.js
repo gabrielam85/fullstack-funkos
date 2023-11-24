@@ -1,4 +1,5 @@
 const { Sequelize } = require('sequelize');
+const mysql2 = require('mysql2');
 
 const sequelize = new Sequelize(
     process.env.DB_NAME,
@@ -7,7 +8,7 @@ const sequelize = new Sequelize(
     {
         host: process.env.DB_HOST,
         dialect: 'mysql',
-        dialectModule: require('mysql2'),
+        dialectModule: mysql2,
     }
 );
 
