@@ -3,7 +3,7 @@ const model_productos = require('../models/Producto');
 
 const shop = async (req, res) => {
     try{
-        const productos = await model_productos.findAll();
+        const productos = await model_productos.findAll({ order: [['categoria', 'ASC'], ['nombre', 'ASC']] });
         res.render(path.resolve(__dirname, '../views/shop/shop'), { productos });
     } catch(error){
         console.log(error);
