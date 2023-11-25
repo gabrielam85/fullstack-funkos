@@ -11,32 +11,32 @@
         <label class="create-label" for="categoria">Categoría</label>
         <select name="categoria" id="categoria">
           <option value="">Seleccionar</option>
-          <option value="starWars">Star Wars</option>
-          <option value="pokemon">Pokemon</option>
           <option value="harryPotter">Harry Potter</option>
+          <option value="pokemon">Pokemon</option>
+          <option value="starWars">Star Wars</option>
         </select>
       </div>
       <div class="create-item">
         <label class="create-label" for="licencia">Licencia</label>
         <select name="licencia" id="licencia">
           <option value="">Seleccionar</option>
-          <option value="starWars">Star Wars</option>
-          <option value="pokemon">Pokemon</option>
           <option value="harryPotter">Harry Potter</option>
+          <option value="pokemon">Pokemon</option>
+          <option value="starWars">Star Wars</option>
         </select>
       </div>
     </section>
     <section class="create-item">
-      <label class="create-label" for="nombre-producto"
-        >Nombre del producto:</label
-      >
+      <label class="create-label" for="nombre">Nombre del producto:</label>
       <input
         class="create-text"
         type="text"
-        name="nombre-producto"
-        id="nombre-producto"
+        name="nombre"
+        id="nombre"
+        value="<%= typeof values != 'undefined' ? values.nombre : '' %>"
         required
-        placeholder="Kakashi Hatake Shippuden Saga"
+        placeholder="Harry Potter & Hegwid"
+        minlength="3"
       />
     </section>
     <section class="create-description">
@@ -55,7 +55,7 @@
           type="text"
           name="sku"
           id="sku"
-          placeholder="SSK111AB001"
+          placeholder="HPT001001"
           required
         />
       </div>
@@ -66,7 +66,9 @@
           type="number"
           name="precio"
           id="precio"
+          value="<%= typeof values != 'undefined' ? values.precio : '' %>"
           required
+          minlength="1"
           placeholder="$ 0.000,00"
         />
       </div>
@@ -106,7 +108,14 @@
     </section>
     <section class="create-item">
       <label class="create-label" for="imagenes">Imágenes:</label>
-      <input type="file" id="imagenes" name="imagenes[]" required multiple />
+      <input
+        type="file"
+        id="imagenes"
+        name="imagenes[]"
+        required
+        multiple
+        accept="image/*"
+      />
     </section>
     <section class="create-actions">
       <input class="create-link" type="submit" value="Agregar Producto" />

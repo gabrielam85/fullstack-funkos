@@ -5,10 +5,12 @@ const Producto = sequelize.define('Producto',{
     nombre:{
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
     },
     codigo: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
     },
     categoria: {
         type: DataTypes.STRING,
