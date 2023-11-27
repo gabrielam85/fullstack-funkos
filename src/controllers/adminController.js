@@ -2,6 +2,7 @@ const sharp = require('sharp');
 const path = require('path');
 const { validationResult } = require('express-validator');
 const model = require('../models/Producto');
+const fs = require('fs');
 
 const admin = async (req, res) => {
     try{
@@ -45,9 +46,32 @@ const edit = (req, res) => {
     res.render(path.resolve(__dirname, '../views/admin/edit'));
 };
 
-const destroy = (req, res) => {
-    res.render(path.resolve(__dirname, '../views/admin/delete'));
-};
+const destroy = async(req, res) => {
+	try{
+		const destroyed = await model.destroy({
+			where: {
+				id: req.params.id,
+			},
+		});
+		if(destroyed == 1){
+			fs.unlink(
+				path.resolve(
+					__dirname,
+					`../../../public/uploads/producto_${req.params.id}.jpg`
+			),
+			(error) => {
+				if(error){
+					console.log(error);
+				}
+			});
+		}
+		
+		res.redirect('/admin');
+	}
+	catch(error){
+		res.send(error);
+	}
+}
 
 module.exports = {
     admin,

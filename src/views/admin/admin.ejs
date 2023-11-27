@@ -35,10 +35,16 @@
             <a href="/admin/edit/<%= producto.id %>"
               ><button type="button"><i class="fa-solid fa-pen"></i></button
             ></a>
-            <a href="/admin/delete/<%= producto.id %>"
-              ><button type="button">
-                <i class="fa-solid fa-trash-can"></i></button
-            ></a>
+            <form
+              style
+              class
+              action="/admin/delete/<%=producto.id%>?_method=DELETE"
+              method="post"
+            >
+              <button type="submit">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </form>
           </td>
         </tr>
         <% }) %>
