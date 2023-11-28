@@ -27,9 +27,14 @@ const faqs = (req, res) => {
     res.render(path.resolve(__dirname, '../views/faqs'));
 };
 
+const terminos = (req, res) => {
+    res.render(path.resolve(__dirname, '../views/terminos-condiciones'));
+};
+
 module.exports = {
     index,
     contact,
     about,
-    faqs
+    faqs,
+    terminos,
 };
