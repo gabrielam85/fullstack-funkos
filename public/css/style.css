@@ -111,6 +111,12 @@
     opacity: 1;
   }
 
+  .error-text {
+    color: var(--primary-900);
+    font-size: var(--font-medium);
+    font-weight: 700;
+  }
+
   /*******  TERMINOS Y CONDICIONES   *****/
   .terminosCondiciones{
     font-size: var(--font-medium);

@@ -10,19 +10,20 @@ const register = (req, res) => {
 
 const postRegister = async (req, res) => {
 	const errors = validationResult(req);
-	
-	if(!errors.isEmpty()){
+
+	if(!errors.isEmpty() || !req.body.terminos){
 		return res.render('auth/register', {
 			values: req.body,
-			errors: errors.array(),
+			errors: errors.array().concat([{ msg: "Debes aceptar los términos y condiciones." }]),
 		});
 	}
 	
 	try{
 		const user = await model.create(req.body);
-		res.redirect('/admin');
+		res.redirect('/auth/login');
 	} catch(error){
 		console.log(error);
+		console.log("5");
 		res.send(error);
 	}
 };
@@ -64,7 +65,7 @@ const postLogin = async (req, res) => {
 		} else {
 			req.session.userId = user.id;
 
-			res.redirect("/");
+			res.redirect("/admin");
 		}
 	} catch (error) {
 		console.log(error);

@@ -4,7 +4,7 @@
     Completa el formulario para ser parte del mundo de los Funkos
   </p>
   <% if (typeof errors != 'undefined') { %>
-  <ul>
+  <ul class="error-text">
     <% errors.forEach(error => { %>
     <li><%= error.msg %></li>
     <% }) %>
@@ -73,8 +73,8 @@
     <div class="register-actions">
       <input class="register-submit" type="submit" value="Registrar" />
       <div>
-        <input type="checkbox" id="TyC" name="TyC" />
-        <label class="register-terminos__text" for="terminos_condiciones"
+        <input type="checkbox" id="terminos" name="terminos" />
+        <label class="register-terminos__text" for="terminos"
           >Acepto
           <a href="../terminos" class="register-terminos__link"
             >Términos y Condiciones</a
