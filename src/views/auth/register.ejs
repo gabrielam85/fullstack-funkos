@@ -3,7 +3,14 @@
   <p class="register-subtitle">
     Completa el formulario para ser parte del mundo de los Funkos
   </p>
-  <form class="register-form" action="" method="post">
+  <% if (typeof errors != 'undefined') { %>
+  <ul>
+    <% errors.forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+  <% } %>
+  <form class="register-form" action="/auth/register" method="post">
     <div class="register-item">
       <label class="register-label" for="nombre">Nombre:</label>
       <input
@@ -13,6 +20,7 @@
         id="nombre"
         required
         placeholder="John"
+        value="<%= typeof values != 'undefined' ? values.nombre : '' %>"
       />
     </div>
     <div class="register-item">
@@ -24,17 +32,19 @@
         id="apellido"
         required
         placeholder="Doe"
+        value="<%= typeof values != 'undefined' ? values.apellido : '' %>"
       />
     </div>
     <div class="register-item">
-      <label class="register-label" for="mail">Email:</label>
+      <label class="register-label" for="email">Email:</label>
       <input
         class="register-text"
         type="email"
-        name="mail"
-        id="mail"
+        name="email"
+        id="email"
         required
         placeholder="johndoe@correo.com"
+        value="<%= typeof values != 'undefined' ? values.email : '' %>"
       />
     </div>
     <div class="register-item">
@@ -45,17 +55,18 @@
         name="password"
         id="password"
         required
+        autocomplete="off"
       />
     </div>
     <div class="register-item">
-      <label class="register-label" for="password-check"
+      <label class="register-label" for="password_confirmation"
         >Repita Contraseña:</label
       >
       <input
         class="register-text"
         type="password"
-        name="password-check"
-        id="password-check"
+        name="password_confirmation"
+        id="password_confirmation"
         required
       />
     </div>

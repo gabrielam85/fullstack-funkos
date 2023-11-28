@@ -4,8 +4,16 @@ const sequelize = require('./connection');
 const bcryptjs = require('bcryptjs');
 
 const Usuario = sequelize.define('Usuario',{
+    nombre: {
+        type: DataTypes.STRING,
+		allowNull: false,
+    },
+    apellido: {
+        type: DataTypes.STRING,
+		allowNull: false,
+    },
     email:{
-        type:DataTypes.STRING,
+        type: DataTypes.STRING,
 		allowNull: false,
 		unique: true,
     },
@@ -22,5 +30,9 @@ Usuario.beforeSave(async (user, options) => {
 	
 	user.password = hash;
 })
+
+//(async () => {
+//    await sequelize.sync();
+//})();
 
 module.exports = Usuario;
