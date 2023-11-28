@@ -7,6 +7,22 @@ const methodOverride = require("method-override");
 const app = express();
 const path = require('path');
 
+const session = require("cookie-session");
+
+app.use(
+    session({
+      keys: ["S3cr3t01", "S3cr3t02"],
+    })
+);
+
+const isLogin = (req, res, next) => {
+    if (!req.session.userId) {
+        return res.redirect("/login");
+    }
+
+    next();
+};
+
 const mainRoutes = require('./src/routes/mainRoutes');
 const shopRoutes = require('./src/routes/shopRoutes');
 const adminRoutes = require('./src/routes/adminRoutes');
@@ -19,9 +35,14 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/src/views'));
 
+// Layout para "/home"
+app.use('/', (req, res, next) => {
+    app.set('layout', 'layouts/mainLayout');
+    next();
+});
 // Layout para "/auth"
 app.use('/auth', (req, res, next) => {
-    app.set('layout', 'layouts/mainLayout');
+    app.set('layout', 'layouts/authLayout');
     next();
 });
 // Layout para "/shop",
@@ -29,13 +50,8 @@ app.use('/shop', (req, res, next) => {
     app.set('layout', 'layouts/mainLayout');
     next();
 });
-// Layout para "/home"
-app.use('/', (req, res, next) => {
-    app.set('layout', 'layouts/mainLayout');
-    next();
-});
 // Layout para "/admin"
-app.use('/admin', (req, res, next) => {
+app.use('/admin', isLogin, (req, res, next) => {
     app.set('layout', 'layouts/adminLayout');
     next();
 });

@@ -1,15 +1,23 @@
 <main class="login-container container">
   <h1 class="login-title">INGRESAR A MI CUENTA</h1>
-  <form class="login-form" action="" method="post">
+  <% if (typeof errors != 'undefined') { %>
+  <ul>
+    <% errors.forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+  <% } %>
+  <form class="login-form" action="/auth/login" method="post">
     <div class="login-item">
-      <label class="login-label" for="mail">Email:</label>
+      <label class="login-label" for="email">Email:</label>
       <input
         class="login-text"
         type="email"
-        name="mail"
-        id="mail"
+        name="email"
+        id="email"
         placeholder="johndoe@correo.com"
         required
+        value="<%= typeof values != 'undefined' ? values.email : '' %>"
       />
     </div>
     <div class="login-item">
