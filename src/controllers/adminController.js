@@ -7,11 +7,10 @@ const fs = require('fs');
 const admin = async (req, res) => {
     try{
         const productos = await model.findAll();
-        console.log(productos);
+        
         res.render(path.resolve(__dirname, '../views/admin/admin'), { productos });
     } catch(error){
-        console.log(error);
-        res.status(500).send(error);
+        res.status(500).render('error', { mensaje_error: error.message });
     }
 };
 
@@ -27,7 +26,6 @@ const create = async (req, res) => {
 
     try {
         const producto = await model.create(req.body);
-        console.log(producto);
 
         if(req.file){
             sharp(req.file.buffer)
@@ -37,8 +35,7 @@ const create = async (req, res) => {
 
         res.redirect("/admin");
     } catch (error) {
-        console.log(error);
-        res.send(error);
+        res.status(500).render('error', { mensaje_error: error.message });
     }
 };
 
@@ -61,7 +58,7 @@ const destroy = async(req, res) => {
 			),
 			(error) => {
 				if(error){
-					console.log(error);
+					res.status(500).render('error', { mensaje_error: error.message });
 				}
 			});
 		}
@@ -69,7 +66,7 @@ const destroy = async(req, res) => {
 		res.redirect('/admin');
 	}
 	catch(error){
-		res.send(error);
+        res.status(500).render('error', { mensaje_error: error.message });
 	}
 }
 

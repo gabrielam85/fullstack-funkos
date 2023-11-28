@@ -9,14 +9,12 @@ const shop = async (req, res) => {
         });
         res.render(path.resolve(__dirname, '../views/shop/shop'), { productos });
     } catch(error){
-        console.log(error);
-        res.status(500).send(error);
+        res.status(500).render('error', { mensaje_error: error.message });
     }
 };
 
 const item = async (req, res) => {
     const itemId = req.params.id;
-    console.log(itemId);
 
     try{
         const item = await model_productos.findByPk(itemId, {
@@ -34,8 +32,7 @@ const item = async (req, res) => {
 
         res.render(path.resolve(__dirname, '../views/shop/item'), { productos, item });
     } catch(error){
-        console.log(error);
-        res.status(500).send(error);
+        res.status(500).render('error', { mensaje_error: error.message });
     }
 };
 

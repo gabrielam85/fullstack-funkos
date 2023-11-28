@@ -111,10 +111,37 @@
     opacity: 1;
   }
 
+  .error__container{
+    font-family: var(--base-font);
+    padding: var(--spacing-16) var(--spacing-68);
+  }
+
   .error-text {
     color: var(--primary-900);
     font-size: var(--font-medium);
     font-weight: 700;
+  }
+
+  .error-title{
+    color: var(--primary-solid);
+    text-align: center;
+    font-size: var(--font-xlarge);
+    margin-bottom: var(--spacing-16);
+  }
+
+  .error-texts{
+    font-size: var(--font-medium);
+  }
+
+  .error-textarea{
+    width: 80%;
+    height: 100px;
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  .error-link{
+    font-size: var(--font-small);
   }
 
   /*******  TERMINOS Y CONDICIONES   *****/

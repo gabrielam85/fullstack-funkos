@@ -10,8 +10,7 @@ const index = async (req, res) => {
 
         res.render(path.resolve(__dirname, '../views/index'), { productos });
     } catch(error){
-        console.log(error);
-        res.status(500).send(error);
+        res.status(500).render('error', { mensaje_error: error.message });
     }
 };
 
