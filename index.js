@@ -78,9 +78,9 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, async () => {
     try{
-        await sequelize.authenticate();
+        await sequelize.sync();
     }   catch(error){
-        console.log(error);
+        res.status(500).render('error');
     }
 
     console.log("Servidor corriendo en http://localhost:" + PORT);
