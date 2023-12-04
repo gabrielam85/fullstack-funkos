@@ -1370,6 +1370,9 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
   align-items: center;
 }
 
+.category-container{
+  margin-bottom: var(--spacing-128);
+}
 
 /******* MEDIA QUERIES ******/
 @media screen and (max-width: 768px) {
