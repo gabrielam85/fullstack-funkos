@@ -75,7 +75,6 @@ const store = async (req, res) => {
   };
 
   const destroy = async (req, res) => {
-	console.log("entré en el destroy");
 	try {
 	  const destroyed = await model.destroy({
 		where: {
