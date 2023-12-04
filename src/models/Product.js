@@ -22,6 +22,18 @@ const Product = sequelize.define('Product',{
     },
     precio: {
         type: DataTypes.FLOAT,
+        allowNull: false,
+    },
+    descripcion: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    stock: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+    },
+    descuento: {
+        type: DataTypes.INTEGER,
         allowNull: true,
     },
     urlFront: {
