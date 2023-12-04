@@ -21,7 +21,7 @@ const store = async (req, res) => {
 	const errors = validationResult(req);
   
 	if (!errors.isEmpty()) {
-	  return res.render("admin/category/create", {
+	  return res.render("/admin/category/create", {
 		values: req.body,
 		errors: errors.array(),
 	  });
@@ -29,11 +29,11 @@ const store = async (req, res) => {
   
 	try {
 	  const category = await model.create(req.body);
-  
-	  res.redirect("/admin/category");
+	  console.log("category created", category);
+	  res.redirect("/category");
 	} catch (error) {
 	  console.log(error);
-	  res.send(error);
+	  res.status(500).send("Error al crear la categoría");
 	}
   };
 
@@ -70,7 +70,7 @@ const store = async (req, res) => {
 		},
 	  });
   
-	  res.redirect("/admin/category");
+	  res.redirect("admin/category");
 	} catch (error) {
 	  console.log(error);
 	  res.send(error);
@@ -87,7 +87,7 @@ const store = async (req, res) => {
 		},
 	  });
   
-	  res.redirect("/admin/category");
+	  res.redirect("admin/category");
 	} catch (error) {
 	  console.log(error);
 	  res.send(error);

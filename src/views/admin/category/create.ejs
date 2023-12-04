@@ -1,11 +1,6 @@
 <main class="create-container container">
   <h1 class="create-title">CREAR NUEVA CATEGORÍA</h1>
-  <form
-    class="create-form"
-    action=""
-    method="post"
-    enctype="multipart/form-data"
-  >
+  <form class="create-form" action="/category/create" method="post">
     <section class="create-item">
       <label class="create-label" for="nombre">Nombre de la categoría:</label>
       <input
@@ -15,7 +10,7 @@
         id="nombre"
         value="<%= typeof values != 'undefined' ? values.nombre : '' %>"
         required
-        placeholder="Harry Potter & Hegwid"
+        placeholder="STAR WARS"
         minlength="3"
       />
     </section>
