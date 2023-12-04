@@ -29,10 +29,9 @@ const store = async (req, res) => {
   
 	try {
 	  const category = await model.create(req.body);
-	  console.log("category created", category);
+	  
 	  res.redirect("/category");
 	} catch (error) {
-	  console.log(error);
 	  res.status(500).send("Error al crear la categoría");
 	}
   };
@@ -52,8 +51,7 @@ const store = async (req, res) => {
   };
 
   const update = async (req, res) => {
-	console.log(req.params, req.body);
-  
+	console.log("Update function called");
 	const errors = validationResult(req);
   
 	if (!errors.isEmpty()) {
@@ -70,7 +68,7 @@ const store = async (req, res) => {
 		},
 	  });
   
-	  res.redirect("admin/category");
+	  res.redirect("/category");
 	} catch (error) {
 	  console.log(error);
 	  res.send(error);

@@ -1,26 +1,31 @@
-<main class="create-container container"></mainclass>
+<main class="create-container container">
   <h1 class="create-title">EDITAR CATEGORÍA</h1>
-  <form 
-      class="edit-form"
-      action=""
-      method="post"
-      enctype="multipart/form-data">
-        <section class="create-item">
-          <label class="create-label" for="nombre"
-            >Nombre de la categoría:</label
-          >
-          <input
-            class="create-text"
-            type="text"
-            name="nombre"
-            id="nombre"
-            required
-            placeholder="STAR WARS"
-          />
-        </section>
-        <section class="create-actions">
-          <input class="create-link" type="submit" value="Modificar Categoría" />
-        </section>
+  <% if (typeof errors != 'undefined') { %>
+  <ul>
+    <% errors.forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+  <% } %>
+  <form
+    class="edit-form"
+    action="/category/edit/<%= values.id%>?_method=PUT"
+    method="post"
+  >
+    <section class="create-item">
+      <label class="create-label" for="nombre">Nombre de la categoría:</label>
+      <input
+        class="create-text"
+        type="text"
+        name="nombre"
+        id="nombre"
+        required
+        placeholder="STAR WARS"
+      />
+    </section>
+    <section class="create-actions">
+      <input class="create-link" type="submit" value="Modificar Categoría" />
+    </section>
   </form>
 </main>
 <%- contentFor('title') %> Edición Categoría - Funkoshop
