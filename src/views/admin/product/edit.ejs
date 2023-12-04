@@ -122,24 +122,21 @@
       <input type="file" id="imagenes" name="imagenes[]" required multiple />
     </section>
     <section class="edit-package__container">
+      <% if (values.urlFront && values.altFront) { %>
       <div class="edit-package">
         <picture class="edit-cover">
-          <img
-            alt="kakashi hatake front"
-            src="/img/naruto/kakashi_hatake_front.png"
-          />
+          <img alt="<%= values.altFront %>" src="<%= values.urlFront %>" />
           <figcaption>Frente</figcaption>
         </picture>
       </div>
+      <% } %> <% if (values.urlBack && values.altBack) { %>
       <div class="edit-package">
         <picture class="edit-cover">
-          <img
-            alt="kakashi hatake back"
-            src="/img/naruto/kakashi_hatake_back.png"
-          />
+          <img alt="<%= values.altBack %>" src="<%= values.urlBack %>" />
           <figcaption>Dorso</figcaption>
         </picture>
       </div>
+      <% } %>
     </section>
     <section class="create-actions">
       <input class="create-link" type="submit" value="Modificar Producto" />

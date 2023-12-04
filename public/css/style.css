@@ -679,6 +679,7 @@ display: none;
   display: flex;
   gap: var(--spacing-36);
   align-items: center;
+  width: 30%;
 }
 
 .edit-cover{
