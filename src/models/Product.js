@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('./connection');
 
-const Producto = sequelize.define('Producto',{
+const Product = sequelize.define('Product',{
     nombre:{
         type: DataTypes.STRING,
         allowNull: false,
@@ -42,9 +42,4 @@ const Producto = sequelize.define('Producto',{
     },
 });
 
-//Para dev, en produccion se comenta
-(async () => {
-    await sequelize.sync();
-})();
-
-module.exports = Producto;
+module.exports = Product;

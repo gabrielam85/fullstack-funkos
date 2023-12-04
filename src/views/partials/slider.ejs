@@ -2,8 +2,8 @@
   <h2 class="slider__title"><%= titulo %></h2>
   <div class="glide__track" data-glide-el="track">
     <ul class="slider__items glide__slides">
-      <% productos.forEach(producto => { %> <%-
-      include('../partials/slider-item', {producto}) %> <% }) %>
+      <% products.forEach(product => { %> <%- include('../partials/slider-item',
+      {product}) %> <% }) %>
     </ul>
   </div>
   <div class="glide__arrows" data-glide-el="controls">

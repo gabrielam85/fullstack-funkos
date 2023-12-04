@@ -22,7 +22,7 @@ const postRegister = async (req, res) => {
 		const user = await model.create(req.body);
 		res.redirect('/auth/login');
 	} catch(error){
-		res.status(500).render('error', { mensaje_error: error.message });
+		console.log(error);
 	}
 };
 
@@ -66,7 +66,7 @@ const postLogin = async (req, res) => {
 			res.redirect("/admin");
 		}
 	} catch (error) {
-		res.status(500).render('error', { mensaje_error: error.message });
+		console.log(error);
 	}
 };
 

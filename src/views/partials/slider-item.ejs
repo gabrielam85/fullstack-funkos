@@ -1,24 +1,24 @@
 <li class="slider__item glide__slide">
   <article class="card-item">
-    <a class="card-item__link" href="/shop/item/<%= producto.id %>">
+    <a class="card-item__link" href="/shop/item/<%= product.id %>">
       <picture class="card-item__cover">
         <span class="card-item__tag">Nuevo</span>
         <img
           class="card-item__img__front"
-          src="<%= producto.urlFront %>"
-          alt="<%= producto.altFront %>"
+          src="<%= product.urlFront %>"
+          alt="<%= product.altFront %>"
         />
         <img
           class="card-item__img__back"
-          src="<%= producto.urlBack %>"
-          alt="<%= producto.altBack %>"
+          src="<%= product.urlBack %>"
+          alt="<%= product.altBack %>"
         />
       </picture>
       <div class="card-item__content">
-        <p class="card-item__licence"><%= producto.coleccion %></p>
-        <h4 class="card-item__name"><%= producto.nombre %></h4>
-        <p class="card-item__price">$<%= producto.precio %>.-</p>
-        <p class="card-item__promo"><%= producto.promo %></p>
+        <p class="card-item__licence"><%= product.coleccion %></p>
+        <h4 class="card-item__name"><%= product.nombre %></h4>
+        <p class="card-item__price">$<%= product.precio %>.-</p>
+        <p class="card-item__promo"><%= product.promo %></p>
       </div>
     </a>
   </article>

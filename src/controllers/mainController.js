@@ -1,16 +1,16 @@
 const path = require('path');
-const model_productos = require('../models/Producto');
+const model_productos = require('../models/Product');
 
 const index = async (req, res) => {
     try{
-        const productos = await model_productos.findAll({ 
+        const products = await model_productos.findAll({ 
             attributes: ["id", "nombre", "precio", "urlFront", "urlBack", "altFront", "altBack"],
             order: [['nombre', 'ASC']]
         });
 
-        res.render(path.resolve(__dirname, '../views/index'), { productos });
+        res.render(path.resolve(__dirname, '../views/index'), { products });
     } catch(error){
-        res.status(500).render('error', { mensaje_error: error.message });
+        console.log(error);
     }
 };
 

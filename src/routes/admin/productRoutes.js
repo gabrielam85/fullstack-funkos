@@ -21,13 +21,16 @@ const validations = [
     .withMessage("El precio debe tener por lo menos 1 dígito"),
 ];
 
-const adminControllers = require('../controllers/adminController');
+const controller = require('../../controllers/admin/productController');
 
-router.get('/', adminControllers.admin);
-router.get('/create', adminControllers.create);
-router.post('/create', adminControllers.create);
-router.get('/edit/:id', adminControllers.edit);
-router.put('/edit/:id', adminControllers.edit);
-router.delete('/delete/:id', adminControllers.destroy);
+router.get('/', controller.index);
+
+router.get('/create', controller.create);
+router.post('/create', controller.create);
+
+router.get('/edit/:id', controller.edit);
+router.put('/edit/:id', controller.update);
+
+router.delete('/delete/:id', controller.destroy);
 
 module.exports = router;

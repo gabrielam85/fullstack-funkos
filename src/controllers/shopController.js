@@ -1,15 +1,15 @@
 const path = require('path');
-const model_productos = require('../models/Producto');
+const model = require('../models/Product');
 
 const shop = async (req, res) => {
     try{
-        const productos = await model_productos.findAll({ 
+        const products = await model.findAll({ 
             attributes: ["id", "nombre", "categoria", "precio", "urlFront", "urlBack", "altFront", "altBack"],
             order: [['categoria', 'ASC'], ['nombre', 'ASC']] 
         });
-        res.render(path.resolve(__dirname, '../views/shop/shop'), { productos });
+        res.render(path.resolve(__dirname, '../views/shop/shop'), { products });
     } catch(error){
-        res.status(500).render('error', { mensaje_error: error.message });
+        console.log(error);
     }
 };
 
@@ -17,7 +17,7 @@ const item = async (req, res) => {
     const itemId = req.params.id;
 
     try{
-        const item = await model_productos.findByPk(itemId, {
+        const item = await model.findByPk(itemId, {
             attributes: ["id", "nombre", "categoria", "precio", "metodo_pago", "urlFront", "urlBack", "altFront", "altBack"]
         });
         if(!item){
@@ -25,14 +25,14 @@ const item = async (req, res) => {
             return;
         }
 
-        const productos = await model_productos.findAll({ 
+        const products = await model.findAll({ 
             attributes: ["id", "nombre", "precio", "urlFront", "urlBack", "altFront", "altBack"],
             order: [['nombre', 'ASC']]
         });
 
-        res.render(path.resolve(__dirname, '../views/shop/item'), { productos, item });
+        res.render(path.resolve(__dirname, '../views/shop/item'), { products, item });
     } catch(error){
-        res.status(500).render('error', { mensaje_error: error.message });
+        console.log(error);
     }
 };
 

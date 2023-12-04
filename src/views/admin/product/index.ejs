@@ -25,20 +25,20 @@
         </tr>
       </thead>
       <tbody class="product__table__body">
-        <% productos.forEach(producto => { %>
+        <% products.forEach(product => { %>
         <tr class="product__table__row">
-          <td class="product__table__data"><%= producto.id %></td>
-          <td class="product__table__data"><%= producto.codigo %></td>
-          <td class="product__table__data"><%= producto.nombre %></td>
-          <td class="product__table__data"><%= producto.categoria %></td>
+          <td class="product__table__data"><%= product.id %></td>
+          <td class="product__table__data"><%= product.codigo %></td>
+          <td class="product__table__data"><%= product.nombre %></td>
+          <td class="product__table__data"><%= product.categoria %></td>
           <td class="product__table__actions product__table__data">
-            <a href="/admin/edit/<%= producto.id %>"
+            <a href="/admin/edit/<%= product.id %>"
               ><button type="button"><i class="fa-solid fa-pen"></i></button
             ></a>
             <form
               style
               class
-              action="/admin/delete/<%=producto.id%>?_method=DELETE"
+              action="/admin/delete/<%=product.id%>?_method=DELETE"
               method="post"
             >
               <button type="submit">
