@@ -49,7 +49,7 @@ const destroy = async(req, res) => {
 			});
 		}
 		
-		res.redirect('/admin');
+		res.redirect('/product');
 	}
 	catch(error){
         console.log(error);

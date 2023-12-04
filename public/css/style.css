@@ -1353,6 +1353,22 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
   font-weight: 500;
 }
 
+/********* CATEGORIAS *******/
+.category__table{
+  display: grid;
+  border-collapse: collapse;
+  min-width: 100%;
+  padding: var(--spacing-24) 0;
+  grid-template-columns: 1fr 2fr 0.5fr;
+  grid-column-gap: 0px;
+  text-align: left;
+}
+
+.add-product__button-container a{
+  display: flex;
+  align-items: center;
+}
+
 
 /******* MEDIA QUERIES ******/
 @media screen and (max-width: 768px) {

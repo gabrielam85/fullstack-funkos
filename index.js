@@ -26,6 +26,7 @@ const isLogin = (req, res, next) => {
 const mainRoutes = require('./src/routes/mainRoutes');
 const shopRoutes = require('./src/routes/shopRoutes');
 const productRoutes = require('./src/routes/admin/productRoutes');
+const categoryRoutes = require('./src/routes/admin/categoryRoutes');
 const authRoutes = require('./src/routes/authRoutes');
 
 const sequelize = require('./src/models/connection');
@@ -50,8 +51,13 @@ app.use('/shop', (req, res, next) => {
     app.set('layout', 'layouts/mainLayout');
     next();
 });
-// Layout para "/admin"
-app.use('/admin', isLogin, (req, res, next) => {
+// Layout para "/product"
+app.use('/product', isLogin, (req, res, next) => {
+    app.set('layout', 'layouts/adminLayout');
+    next();
+});
+// Layout para "/category"
+app.use('/category', isLogin, (req, res, next) => {
     app.set('layout', 'layouts/adminLayout');
     next();
 });
@@ -63,7 +69,8 @@ app.use(methodOverride("_method"));
 
 app.use('/', mainRoutes);
 app.use('/shop', shopRoutes);
-app.use('/admin', productRoutes);
+app.use('/product', productRoutes);
+app.use('/category', categoryRoutes);
 app.use('/auth', authRoutes);
 
 app.use((req, res, next) => {

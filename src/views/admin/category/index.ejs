@@ -1,44 +1,39 @@
 <main class="admin__container">
   <section class="search-product__container container">
     <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
-    <input
-      class="search-product__input"
-      placeholder="código, nombre o categoria"
-    />
+    <input class="search-product__input" placeholder="nombre de categoría" />
   </section>
   <section class="container add-product__container">
-    <h1 class="add-product__title">LISTADO DE PRODUCTOS</h1>
+    <h1 class="add-product__title">LISTADO DE CATEGORÍAS</h1>
     <div class="add-product__button-container">
-      <p class="add-product__legend">AGREGAR</p>
-      <i class="fa-solid fa-square-plus add-product__button"></i>
+      <a href="/category/create">
+        <p class="add-product__legend">AGREGAR</p>
+        <i class="fa-solid fa-square-plus add-product__button"></i>
+      </a>
     </div>
   </section>
   <section class="product__container container">
-    <table id="listado_productos" class="product__table">
+    <table id="listado_productos" class="category__table">
       <thead class="product__table__head">
         <tr class="product__table__row">
           <th class="product__table__th">ID</th>
-          <th class="product__table__th">Código</th>
-          <th class="product__table__th">Nombre del Producto</th>
           <th class="product__table__th">Categoria</th>
           <th class="product__table__th"></th>
         </tr>
       </thead>
       <tbody class="product__table__body">
-        <% products.forEach(product => { %>
+        <% categories.forEach(category => { %>
         <tr class="product__table__row">
-          <td class="product__table__data"><%= product.id %></td>
-          <td class="product__table__data"><%= product.codigo %></td>
-          <td class="product__table__data"><%= product.nombre %></td>
-          <td class="product__table__data"><%= product.categoria %></td>
+          <td class="product__table__data"><%= category.id %></td>
+          <td class="product__table__data"><%= category.nombre %></td>
           <td class="product__table__actions product__table__data">
-            <a href="/product/edit/<%= product.id %>"
+            <a href="/category/edit/<%= category.id %>"
               ><button type="button"><i class="fa-solid fa-pen"></i></button
             ></a>
             <form
               style
               class
-              action="/product/delete/<%=product.id%>?_method=DELETE"
+              action="/category/delete/<%=category.id%>?_method=DELETE"
               method="post"
             >
               <button type="submit">
