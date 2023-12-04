@@ -51,7 +51,6 @@ const store = async (req, res) => {
   };
 
   const update = async (req, res) => {
-	console.log("Update function called");
 	const errors = validationResult(req);
   
 	if (!errors.isEmpty()) {
@@ -76,8 +75,7 @@ const store = async (req, res) => {
   };
 
   const destroy = async (req, res) => {
-	console.log(req.params);
-  
+	console.log("entré en el destroy");
 	try {
 	  const destroyed = await model.destroy({
 		where: {
@@ -85,7 +83,7 @@ const store = async (req, res) => {
 		},
 	  });
   
-	  res.redirect("admin/category");
+	  res.redirect("/category");
 	} catch (error) {
 	  console.log(error);
 	  res.send(error);

@@ -23,6 +23,6 @@ router.post("/create", validations, controller.store);
 router.get("/edit/:id", controller.edit);
 router.put("/edit/:id", validations, controller.update);
 
-router.delete("/:id", controller.destroy);
+router.delete("/delete/:id", controller.destroy);
 
 module.exports = router;

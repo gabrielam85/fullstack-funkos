@@ -37,7 +37,7 @@
             ></a>
             <form
               style
-              class
+              class="form-delete"
               action="/product/delete/<%=product.id%>?_method=DELETE"
               method="post"
             >
@@ -52,4 +52,15 @@
     </table>
   </section>
 </main>
+<script>
+  document.addEventListener("submit", (event) => {
+    if (event.target.classList.contains("form-delete")) {
+      event.preventDefault();
+
+      if (confirm("¿Está seguro que quiere eliminar el producto?")) {
+        event.target.submit();
+      }
+    }
+  });
+</script>
 <%- contentFor('title') %> Admin - Funkoshop

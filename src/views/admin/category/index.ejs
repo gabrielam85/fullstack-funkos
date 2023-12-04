@@ -31,9 +31,8 @@
               ><button type="button"><i class="fa-solid fa-pen"></i></button
             ></a>
             <form
-              style
-              class
-              action="/category/delete/<%=category.id%>?_method=DELETE"
+              class="form-delete"
+              action="/category/delete/<%= category.id %>?_method=DELETE"
               method="post"
             >
               <button type="submit">
@@ -47,4 +46,15 @@
     </table>
   </section>
 </main>
-<%- contentFor('title') %> Admin - Funkoshop
+<script>
+  document.addEventListener("submit", (event) => {
+    if (event.target.classList.contains("form-delete")) {
+      event.preventDefault();
+
+      if (confirm("¿Está seguro que quiere eliminar la categoría?")) {
+        event.target.submit();
+      }
+    }
+  });
+</script>
+<%- contentFor('title') %> Categoría - Funkoshop
