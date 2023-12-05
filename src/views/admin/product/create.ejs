@@ -1,6 +1,7 @@
 <main class="create-container container">
   <h1 class="create-title">CREAR NUEVO ITEM</h1>
   <form
+    id="createProductForm"
     class="create-form"
     action=""
     method="post"
@@ -125,8 +126,15 @@
     </section>
     <section class="create-actions">
       <input class="create-link" type="submit" value="Agregar Producto" />
-      <input class="create-link" type="reset" value="Limpiar" />
+      <input class="create-link" type="button" value="Limpiar" onclick="resetForm()" />
     </section>
   </form>
 </main>
+<script>
+  function resetForm() {
+    var form = document.getElementById("createProductForm");
+  
+    form.reset();
+  }
+  </script>
 <%- contentFor('title') %> Creación Producto - Funkoshop
