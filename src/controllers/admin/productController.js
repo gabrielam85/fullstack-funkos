@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
+const { Op } = require('sequelize');
 
 const { validationResult } = require('express-validator');
 
@@ -8,6 +9,11 @@ const model = require('../../models/Product');
 const modelCategory = require("../../models/Category");
 
 const index = async (req, res) => {
+
+	if (req.query.search) {
+		return res.redirect(`/product/search?search=${req.query.search}`);
+	}
+
     try{
 		const products = await model.findAll({
 			include: "Category",
@@ -137,11 +143,38 @@ const destroy = async(req, res) => {
 	}
 }
 
+const search = async (req, res) => {
+	try {
+	  const searchTerm = req.query.search;
+
+	  if (!searchTerm) {
+		return res.redirect("/product");
+	  }
+
+	  const products = await model.findAll({
+		include: "Category",
+		where: {
+		  [Op.or]: {
+			codigo: { [Op.like]: `%${searchTerm}%` },
+			nombre: { [Op.like]: `%${searchTerm}%` },
+			'$Category.nombre$': { [Op.like]: `%${searchTerm}%` },
+		  }
+		},
+	  });
+  
+	  res.render("admin/product/index", { products });
+	} catch (error) {
+	  console.log(error);
+	  res.status(500).send(error);
+	}
+  };
+
 module.exports = {
     index,
     create,
 	store,
     edit,
     update,
-    destroy
+    destroy,
+	search,
 };
