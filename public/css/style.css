@@ -1240,6 +1240,7 @@ display: none;
   border: none;
   cursor: pointer;
   outline: none;
+  margin-top: var(--spacing-12);
 }
 
 .filter-form{
@@ -1697,6 +1698,10 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
     minmax(100px, 2fr)
     minmax(100px, 1fr) 
     minmax(120px, 0.5fr);
+  }
+
+  .filter-form{
+    width: 100%;
   }
 
   /****** CART ******/
