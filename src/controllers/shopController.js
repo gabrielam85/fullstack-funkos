@@ -4,8 +4,7 @@ const model = require('../models/Product');
 const shop = async (req, res) => {
     try{
         const products = await model.findAll({ 
-            attributes: ["id", "nombre", "categoria", "precio", "urlFront", "urlBack", "altFront", "altBack"],
-            order: [['categoria', 'ASC'], ['nombre', 'ASC']] 
+            order: [['nombre', 'ASC']] 
         });
         res.render(path.resolve(__dirname, '../views/shop/shop'), { products });
     } catch(error){
@@ -17,9 +16,7 @@ const item = async (req, res) => {
     const itemId = req.params.id;
 
     try{
-        const item = await model.findByPk(itemId, {
-            attributes: ["id", "nombre", "categoria", "precio", "metodo_pago", "urlFront", "urlBack", "altFront", "altBack"]
-        });
+        const item = await model.findByPk(itemId);
         if(!item){
             res.status(404).send('Producto no encontrado');
             return;
