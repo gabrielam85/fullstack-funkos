@@ -1722,10 +1722,6 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
     padding: 0;
     overflow-x: auto;
     font-size: 62.5%;
-    minmax(100px, 1fr) 
-    minmax(100px, 2fr)
-    minmax(100px, 1fr) 
-    minmax(120px, 0.5fr);
     grid-template-columns: minmax(50px, 0.1fr) minmax(100px, 1fr) minmax(120px, 0.5fr);
   }
 
@@ -1787,6 +1783,15 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
   .carrito__content-title{
     display: none;
   }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+  .collection__cover img{
+    width: 80%;
+    margin: 0 10%;
+  }
+
 }
 
 /*******  ANIMATIONS   *****/
