@@ -21,7 +21,8 @@
         id="nombre"
         required
         placeholder="STAR WARS"
-        value="<%= values.nombre %>"
+        value="<%= typeof values != 'undefined' ? values.nombre : '' %>"
+        minlength="3"
       />
     </section>
     <section class="create-actions">

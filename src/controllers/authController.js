@@ -63,7 +63,7 @@ const postLogin = async (req, res) => {
 		} else {
 			req.session.userId = user.id;
 
-			res.redirect("/admin");
+			res.redirect("/product");
 		}
 	} catch (error) {
 		console.log(error);

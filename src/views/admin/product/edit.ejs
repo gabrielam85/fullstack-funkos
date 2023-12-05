@@ -15,23 +15,26 @@
   >
     <section class="create-characteristic">
       <div class="create-item">
-        <label class="create-label" for="categoria">Categoría:</label>
-        <select name="categoria" id="categoria">
+        <label class="create-label" for="tipo">Tipo:</label>
+        <select name="tipo" id="tipo">
           <option value="">Seleccionar</option>
-          <option value="figuras" selected>Figuras</option>
+          <option value="figuras">Figuras</option>
           <option value="llaveros">Llaveros</option>
           <option value="remeras">Remeras</option>
         </select>
       </div>
       <div class="create-item">
-        <label class="create-label" for="licencia">Licencia:</label>
-        <select name="licencia" id="licencia">
-          <option value="">Seleccionar</option>
-          <option value="naruto">Naruto Shippuden</option>
-          <option value="starWars">Star Wars</option>
-          <option value="pokemon">Pokemon</option>
-          <option value="harryPotter">Harry Potter</option>
-        </select>
+        <label class="create-label" for="CategoryId">Categoría:</label>
+        <select name="CategoryId" id="CategoryId">
+            <option value="">Seleccionar</option>
+            <% categories.forEach(category => { %>
+              <option 
+                value="<%= category.id %>" 
+                <%= category.id == values.CategoryId ? "selected" : "" %> 
+              ><%= category.nombre %></option>
+              <% }) %>
+          </select>
+        </div>
       </div>
     </section>
     <section class="create-item">
@@ -143,21 +146,4 @@
     </section>
   </form>
 </main>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const licenciaSelect = document.getElementById("licencia");
-    const categoriaValue = "<%= values.categoria %>";
-    console.log(categoriaValue);
-
-    if (categoriaValue) {
-      const optionToSelect = licenciaSelect.querySelector(
-        `option[value="${categoriaValue}"]`
-      );
-
-      if (optionToSelect) {
-        optionToSelect.selected = true;
-      }
-    }
-  });
-</script>
 <%- contentFor('title') %> Edición Producto - Funkoshop

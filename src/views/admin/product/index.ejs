@@ -9,8 +9,10 @@
   <section class="container add-product__container">
     <h1 class="add-product__title">LISTADO DE PRODUCTOS</h1>
     <div class="add-product__button-container">
-      <p class="add-product__legend">AGREGAR</p>
-      <i class="fa-solid fa-square-plus add-product__button"></i>
+      <a href="/product/create">
+        <p class="add-product__legend">AGREGAR</p>
+        <i class="fa-solid fa-square-plus add-product__button"></i>
+      </a>
     </div>
   </section>
   <section class="product__container container">
@@ -30,7 +32,7 @@
           <td class="product__table__data"><%= product.id %></td>
           <td class="product__table__data"><%= product.codigo %></td>
           <td class="product__table__data"><%= product.nombre %></td>
-          <td class="product__table__data"><%= product.categoria %></td>
+          <td class="product__table__data"><%= product.Category.nombre %></td>
           <td class="product__table__actions product__table__data">
             <a href="/product/edit/<%= product.id %>"
               ><button type="button"><i class="fa-solid fa-pen"></i></button

@@ -1,6 +1,8 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('./connection');
 
+const Category = require("./Category");
+
 const Product = sequelize.define('Product',{
     nombre:{
         type: DataTypes.STRING,
@@ -12,8 +14,8 @@ const Product = sequelize.define('Product',{
         allowNull: false,
         unique: true,
     },
-    categoria: {
-        type: DataTypes.STRING,
+    CategoryId: {
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     metodo_pago: {
@@ -53,5 +55,7 @@ const Product = sequelize.define('Product',{
         allowNull: true,
     },
 });
+
+Product.belongsTo(Category);
 
 module.exports = Product;

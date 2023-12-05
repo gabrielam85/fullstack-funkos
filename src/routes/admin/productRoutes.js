@@ -19,12 +19,6 @@ const validations = [
     .withMessage("El SKU es requerido")
     .isLength({min:3})
     .withMessage("El código debe tener por lo menos 3 caracteres"),
-    body("categoria")
-    .not()
-    .isEmpty()
-    .withMessage("La categoría es requerida")
-    .isLength({min:3})
-    .withMessage("La categoría debe tener por lo menos 3 caracteres"),
     body("precio")
     .not()
     .isEmpty()
@@ -38,6 +32,12 @@ const validations = [
     .withMessage("El descuento debe ser numérico")
     .isFloat({ min: 0, max: 100 })
     .withMessage("El descuento debe estar en el rango de 0 a 100"),
+    body("CategoryId")
+    .not()
+    .isEmpty()
+    .withMessage("La categoría es requerida")
+    .isLength({min:3})
+    .withMessage("La categoría debe tener por lo menos 3 caracteres"),
 ];
 
 const controller = require('../../controllers/admin/productController');

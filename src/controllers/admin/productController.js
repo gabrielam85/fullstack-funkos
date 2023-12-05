@@ -5,10 +5,13 @@ const sharp = require('sharp');
 const { validationResult } = require('express-validator');
 
 const model = require('../../models/Product');
+const modelCategory = require("../../models/Category");
 
 const index = async (req, res) => {
     try{
-        const products = await model.findAll();
+		const products = await model.findAll({
+			include: "Category",
+		  });
         
         res.render("admin/product/index", { products });
     } catch(error){
@@ -18,18 +21,35 @@ const index = async (req, res) => {
 };
 
 const create = async (req, res) => {
-    res.redirect("admin/product/create");
+	try {
+		const categories = await modelCategory.findAll({
+		  order: [["nombre", "ASC"]],
+		});
+		res.render("admin/product/create", { categories });
+	  } catch (error) {
+		console.log(error);
+		res.status(500).send(error);
+	  }
 };
 
 const store = async (req, res) => {
 	const errors = validationResult(req);
   
 	if (!errors.isEmpty()) {
-	  return res.render("/admin/product/create", {
-		values: req.body,
-		errors: errors.array(),
-	  });
-	}
+		try {
+		  const categories = await modelCategory.findAll({
+			order: ["nombre"],
+		  });
+		  return res.render("admin/product/create", {
+			categories,
+			values: req.body,
+			errors: errors.array(),
+		  });
+		} catch (error) {
+		  console.log(error);
+		  res.status(500).send(error);
+		}
+	  }
   
 	try {
 	  const product = await model.create(req.body);
@@ -45,7 +65,9 @@ const edit = async (req, res) => {
 	  const product = await model.findByPk(req.params.id);
   
 	  if (product) {
-		res.render("admin/product/edit", { values: product });
+		const categories = await modelCategory.findAll();
+
+		res.render("admin/product/edit", { values: product, categories });
 	  } else {
 		res.status(404).send("No existe el producto");
 	  }
@@ -58,11 +80,20 @@ const edit = async (req, res) => {
 	const errors = validationResult(req);
   
 	if (!errors.isEmpty()) {
-	  return res.render("admin/product/edit", {
-		values: { ...req.params, ...req.body },
-		errors: errors.array(),
-	  });
-	}
+		try {
+		  const categories = await modelCategory.findAll({
+			order: [["nombre", "ASC"]],
+		  });
+		  return res.render("/product/edit", {
+			categories,
+			values: { ...req.params, ...req.body },
+			errors: errors.array(),
+		  });
+		} catch (error) {
+		  console.log(error);
+		  res.status(500).send(error);
+		}
+	  }
   
 	try {
 	  const count = await model.update(req.body, {
