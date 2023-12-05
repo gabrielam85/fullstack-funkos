@@ -45,11 +45,11 @@ const controller = require('../../controllers/admin/productController');
 router.get('/', controller.index);
 
 router.get('/create', controller.create);
-router.post('/create', controller.create);
+router.post('/create', upload.single("imagen"), controller.store);
 
 router.get('/edit/:id', controller.edit);
-router.put('/edit/:id', controller.update);
+router.put('/edit/:id', upload.single("imagen"), controller.update);
 
-router.delete('/delete/:id', controller.destroy);
+router.delete('/:id', controller.destroy);
 
 module.exports = router;

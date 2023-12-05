@@ -54,6 +54,17 @@ const store = async (req, res) => {
 	try {
 	  const product = await model.create(req.body);
 	  
+	  if (req.file) {
+		sharp(req.file.buffer)
+		  .resize(300)
+		  .toFile(
+			path.resolve(
+			  __dirname,
+			  `../../../public/uploads/productos/producto_${product.id}.jpg`
+			)
+		  );
+	  }
+
 	  res.redirect("/product");
 	} catch (error) {
 	  res.status(500).send("Error al crear el producto");
@@ -101,6 +112,17 @@ const edit = async (req, res) => {
 		  id: req.params.id,
 		},
 	  });
+
+	  if (req.file) {
+		sharp(req.file.buffer)
+		  .resize(300)
+		  .toFile(
+			path.resolve(
+			  __dirname,
+			  `../../../public/uploads/productos/producto_${req.params.id}.jpg`
+			)
+		  );
+	  }
   
 	  res.redirect("/product");
 	} catch (error) {
@@ -120,7 +142,7 @@ const destroy = async(req, res) => {
 			fs.unlink(
 				path.resolve(
 					__dirname,
-					`../../../public/uploads/producto_${req.params.id}.jpg`
+					`../../../public/uploads/productos/producto_${req.params.id}.jpg`
 			),
 			(error) => {
 				if(error){

@@ -122,7 +122,14 @@
     </section>
     <section class="create-item">
       <label class="create-label" for="imagenes">Imágenes:</label>
-      <input type="file" id="imagenes" name="imagenes" multiple />
+      <input type="file" id="imagen" name="imagen" accept="image/*" />
+      <div>
+        <img
+          width="50"
+          src="/uploads/productos/producto_<%= values.id %>.jpg"
+          alt="<%= values.nombre %>"
+        />
+      </div>
     </section>
     <section class="edit-package__container">
       <% if (values.urlFront && values.altFront) { %>

@@ -108,13 +108,18 @@
       </div>
     </section>
     <section class="create-item">
-      <label class="create-label" for="imagenes">Imágenes:</label>
+      <label class="create-label" for="imagen-frente">Imagen Frente:</label>
       <input
         type="file"
-        id="imagenes"
-        name="imagenes[]"
-        required
-        multiple
+        id="imagen-frente"
+        name="imagen-frente"
+        accept="image/*"
+      />
+      <label class="create-label" for="imagen-dorso">Imagen Dorso:</label>
+      <input
+        type="file"
+        id="imagen-dorso"
+        name="imagen-dorso"
         accept="image/*"
       />
     </section>
