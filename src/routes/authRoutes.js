@@ -2,7 +2,7 @@ const express = require('express');
 const { Model } = require('sequelize');
 const router = express.Router();
 
-const model = require('../models/Usuario');
+const model = require('../models/User');
 
 const { body } = require('express-validator');
 
@@ -62,14 +62,14 @@ const loginValidations = [
 		.withMessage("La contraseña debe tener ..."),
 ];
 
-const authControllers = require('../controllers/authController');
+const controller = require('../controllers/authController');
 
-router.get('/register', authControllers.register);
-router.post('/register', registerValidations, authControllers.postRegister);
+router.get('/register', controller.register);
+router.post('/register', registerValidations, controller.postRegister);
 
-router.get('/login', authControllers.login);
-router.post('/login', loginValidations, authControllers.postLogin);
+router.get('/login', controller.login);
+router.post('/login', loginValidations, controller.postLogin);
 
-router.get('/logout', authControllers.logout);
+router.get('/logout', controller.logout);
 
 module.exports = router;

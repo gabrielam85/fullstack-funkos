@@ -2,7 +2,7 @@ const bcryptjs = require("bcryptjs");
 const path = require('path');
 const { validationResult} = require('express-validator');
 
-const model = require('../models/Usuario');
+const model = require('../models/User');
 
 const register = (req, res) => {
     res.render(path.resolve(__dirname, '../views/auth/register'));
@@ -72,7 +72,8 @@ const postLogin = async (req, res) => {
 
 const logout = (req, res) => {
 	req.session = null;
-	res.redirect("/");
+	
+	res.redirect("/home");
 }
 
 module.exports = {

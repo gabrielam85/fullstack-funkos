@@ -15,14 +15,6 @@ app.use(
     })
 );
 
-const isLogin = (req, res, next) => {
-    if (!req.session.userId) {
-        return res.redirect("/login");
-    }
-
-    next();
-};
-
 const mainRoutes = require('./src/routes/mainRoutes');
 const shopRoutes = require('./src/routes/shopRoutes');
 const productRoutes = require('./src/routes/admin/productRoutes');
@@ -30,6 +22,13 @@ const categoryRoutes = require('./src/routes/admin/categoryRoutes');
 const authRoutes = require('./src/routes/authRoutes');
 
 const sequelize = require('./src/models/connection');
+
+const isLogin = (req, res, next) => {
+    if (!req.session.userId) {
+        return res.redirect("/login");
+    }
+    next();
+};
 
 app.use(express.static('public'));
 

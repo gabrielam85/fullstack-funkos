@@ -3,7 +3,7 @@ const sequelize = require('./connection');
 
 const bcryptjs = require('bcryptjs');
 
-const Usuario = sequelize.define('Usuario',{
+const User = sequelize.define('User',{
     nombre: {
         type: DataTypes.STRING,
 		allowNull: false,
@@ -23,7 +23,7 @@ const Usuario = sequelize.define('Usuario',{
     },
 });
 
-Usuario.beforeSave(async (user, options) => {
+User.beforeSave(async (user, options) => {
 	const { password } = user;
 	
 	const hash = await bcryptjs.hash(password, 12);
@@ -31,4 +31,4 @@ Usuario.beforeSave(async (user, options) => {
 	user.password = hash;
 })
 
-module.exports = Usuario;
+module.exports = User;
