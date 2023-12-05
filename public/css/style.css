@@ -1378,6 +1378,14 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
 @media screen and (max-width: 768px) {
 
     /******* HEADER ***********/
+    header{
+      padding: var(--spacing-24);
+    }
+
+    .navbar__link{
+      font-size: var(--font-small);
+    }
+
     .navbar__menu{
       flex-direction: column;
       background-color: #333;
@@ -1452,6 +1460,7 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
 
   .collection__title{
     font-size: var(--font-xlarge);
+    margin: 0 10%;
   }
 
   .collection__text{
@@ -1465,13 +1474,23 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
 
   .collection__link{
     font-size: var(--font-xsmall);
+    margin: 0 18%;
   }
 
   .collection__content{
     text-align: center;
+    order: 2;
+    display: flex;
+    justify-content: center;
+  }
+
+  .collection__cover{
+    order: 1;
   }
 
   .collection.container{
+    display: flex;
+    flex-direction: column;
     padding-bottom: var(--spacing-28);
     border-bottom: 2px solid var(--primary-solid);
   }
@@ -1481,7 +1500,6 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
   }
   
   /***** ITEM ******/
-
   .item.container{
     padding-bottom: var(--spacing-28);
     border-bottom: 2px solid var(--primary-solid);
@@ -1518,6 +1536,10 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
   .slider__items{
     gap: var(--spacing-8);
     justify-content: space-between;
+  }
+
+  .slider{
+    margin: var(--spacing-68) auto auto;
   }
   
   /*******  LOGIN   *****/
@@ -1579,13 +1601,18 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
     flex-wrap: wrap;
    }
 
-   .create-item{
-    flex-wrap: wrap;
-   }
-
    .create-actions{
     flex-direction: column;
     margin: var(--spacing-16);
+   }
+
+   #descuento{
+    width: 30%;
+   }
+
+   /***** EDIT *****/
+   .edit-form select{
+    width: 100%;
    }
 
    /***** SHOP *****/
@@ -1676,6 +1703,10 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
     gap: 0;
   }
 
+  .product__table__actions a{
+    width: 90%;
+  }
+
   .product__table{
     padding: 0;
     overflow-x: auto;
@@ -1685,6 +1716,17 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
     minmax(100px, 2fr)
     minmax(100px, 1fr) 
     minmax(120px, 0.5fr);
+  }
+  
+  .category__table{
+    padding: 0;
+    overflow-x: auto;
+    font-size: 62.5%;
+    minmax(100px, 1fr) 
+    minmax(100px, 2fr)
+    minmax(100px, 1fr) 
+    minmax(120px, 0.5fr);
+    grid-template-columns: minmax(50px, 0.1fr) minmax(100px, 1fr) minmax(120px, 0.5fr);
   }
 
   /****** CART ******/
