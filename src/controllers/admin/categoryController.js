@@ -1,3 +1,5 @@
+const { Op } = require('sequelize');
+
 const { validationResult } = require('express-validator');
 
 const model = require('../../models/Category');
@@ -89,11 +91,35 @@ const store = async (req, res) => {
 	}
   };
 
+  const search = async (req, res) => {
+	try {
+	  const searchTerm = req.query.search;
+
+	  if (!searchTerm) {
+		return res.redirect("/category");
+	  }
+
+	  const categories = await model.findAll({
+		where: {
+		  nombre: {
+			[Op.like]: `%${searchTerm}%`,
+		  },
+		},
+	  });
+  
+	  res.render("admin/category/index", { categories });
+	} catch (error) {
+	  console.log(error);
+	  res.status(500).send(error);
+	}
+  };
+
 module.exports = {
     index,
     create,
 	store,
     edit,
     update,
-    destroy
+    destroy,
+	search,
 };

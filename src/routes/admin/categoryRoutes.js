@@ -25,4 +25,6 @@ router.put("/edit/:id", validations, controller.update);
 
 router.delete("/delete/:id", controller.destroy);
 
+router.get('/search', controller.search);
+
 module.exports = router;

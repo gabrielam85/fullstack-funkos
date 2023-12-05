@@ -1,7 +1,15 @@
 <main class="admin__container">
   <section class="search-product__container container">
-    <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
-    <input class="search-product__input" placeholder="nombre de categoría" />
+    <form action="/category/search" method="get" class="filter-form">
+      <button type="submit" class="search-button">
+        <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
+      </button>
+      <input
+        class="search-product__input"
+        name="search"
+        placeholder="categoría"
+      />
+    </form>
   </section>
   <section class="container add-product__container">
     <h1 class="add-product__title">LISTADO DE CATEGORÍAS</h1>

@@ -1242,6 +1242,11 @@ display: none;
   outline: none;
 }
 
+.filter-form{
+  width: 40%;
+  display: flex;
+}
+
 .admin__container{
   font-family: var(--base-font);
   padding: var(--spacing-16) var(--spacing-68);
@@ -1280,7 +1285,7 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
   margin-left: var(--spacing-28);
   padding: 0.6em;
   border-radius: 5px;
-  width: 40%;
+  width: 100%;
   font-size: var(--font-xsmall);
   font-weight: 500;
 }
