@@ -25,7 +25,7 @@ const sequelize = require('./src/models/connection');
 
 const isLogin = (req, res, next) => {
     if (!req.session.userId) {
-        return res.redirect("/login");
+        return res.redirect("/auth/login");
     }
     next();
 };
