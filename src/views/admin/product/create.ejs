@@ -1,6 +1,14 @@
 <main class="create-container container">
   <h1 class="create-title">CREAR NUEVO ITEM</h1>
+  <% if (typeof errors != 'undefined') { %>
+    <ul class="list-errors">
+      <% errors.forEach(error => { %>
+      <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+    <% } %>
   <form
+    id="createProductForm"
     class="create-form"
     action=""
     method="post"
@@ -18,7 +26,7 @@
       </div>
       <div class="create-item">
         <label class="create-label" for="CategoryId">Categoría:</label>
-        <select name="CategoryId" id="CategoryId">
+        <select name="CategoryId" id="CategoryId" required>
             <option value="">Seleccionar</option>
             <% categories.forEach(category => { %>
             <option value="<%= category.id %>"><%= category.nombre %></option>
@@ -50,12 +58,12 @@
     </section>
     <section class="create-characteristic">
       <div class="create-item">
-        <label class="create-label" for="sku">SKU:</label>
+        <label class="create-label" for="codigo">Código:</label>
         <input
           class="create-text"
           type="text"
-          name="sku"
-          id="sku"
+          name="codigo"
+          id="codigo"
           placeholder="HPT001001"
           required
         />
@@ -81,20 +89,21 @@
           name="stock"
           id="stock"
           placeholder="0"
-          required
         />
       </div>
     </section>
     <section class="create-characteristic">
       <div class="create-item">
-        <label class="create-label" for="descuento">Descuento:</label>
+        <label class="create-label" for="descuento">Descuento %:</label>
         <input
           class="create-text"
-          type="text"
+          type="number"
           name="descuento"
           id="descuento"
           placeholder="0%"
-          required
+          value="0"
+          min="0"
+          max="100"
         />
       </div>
       <div class="create-item">
@@ -108,20 +117,41 @@
       </div>
     </section>
     <section class="create-item">
-      <label class="create-label" for="imagenes">Imágenes:</label>
+      <label class="create-label" for="imagen">Imagen:</label>
       <input
         type="file"
-        id="imagenes"
-        name="imagenes[]"
-        required
-        multiple
+        id="imagen"
+        name="imagen"
         accept="image/*"
       />
     </section>
+    <!--<section class="create-item">
+      <label class="create-label" for="imagen-frente">Imagen Frente:</label>
+      <input
+        type="file"
+        id="imagen-frente"
+        name="imagen-frente"
+        accept="image/*"
+      />
+      <label class="create-label" for="imagen-dorso">Imagen Dorso:</label>
+      <input
+        type="file"
+        id="imagen-dorso"
+        name="imagen-dorso"
+        accept="image/*"
+      />
+    </section>-->
     <section class="create-actions">
       <input class="create-link" type="submit" value="Agregar Producto" />
-      <input class="create-link" type="reset" value="Limpiar" />
+      <input class="create-link" type="button" value="Limpiar" onclick="resetForm()" />
     </section>
   </form>
 </main>
+<script>
+  function resetForm() {
+    var form = document.getElementById("createProductForm");
+  
+    form.reset();
+  }
+  </script>
 <%- contentFor('title') %> Creación Producto - Funkoshop

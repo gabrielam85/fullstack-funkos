@@ -45,7 +45,7 @@
             <form
               style
               class="form-delete"
-              action="/product/delete/<%=product.id%>?_method=DELETE"
+              action="/product/<%=product.id%>?_method=DELETE"
               method="post"
             >
               <button type="submit">
@@ -70,4 +70,4 @@
     }
   });
 </script>
-<%- contentFor('title') %> Admin - Funkoshop
+<%- contentFor('title') %> Productos - Funkoshop

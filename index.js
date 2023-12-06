@@ -7,7 +7,7 @@ const methodOverride = require("method-override");
 const app = express();
 const path = require('path');
 
-const session = require("cookie-session");
+const session = require("cookie-session"); //en vercel funciona cookie-session
 
 app.use(
     session({
