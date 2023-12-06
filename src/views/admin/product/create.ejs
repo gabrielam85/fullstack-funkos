@@ -1,12 +1,12 @@
 <main class="create-container container">
   <h1 class="create-title">CREAR NUEVO ITEM</h1>
   <% if (typeof errors != 'undefined') { %>
-    <ul class="list-errors">
-      <% errors.forEach(error => { %>
-      <li><%= error.msg %></li>
-      <% }) %>
-    </ul>
-    <% } %>
+  <ul class="list-errors">
+    <% errors.forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+  <% } %>
   <form
     id="createProductForm"
     class="create-form"
@@ -16,23 +16,22 @@
   >
     <section class="create-characteristic">
       <div class="create-item">
-        <label class="create-label" for="licencia">Licencia:</label>
-        <select name="licencia" id="licencia">
+        <label class="create-label" for="LicenceId">Licencia:</label>
+        <select name="LicenceId" id="LicenceId" required>
           <option value="">Seleccionar</option>
-          <option value="figuras">Figuras</option>
-          <option value="llaveros">Llaveros</option>
-          <option value="calcomanias">Calcomanías</option>
+          <% licences.forEach(licence => { %>
+          <option value="<%= licence.id %>"><%= licence.nombre %></option>
+          <% }) %>
         </select>
       </div>
       <div class="create-item">
         <label class="create-label" for="CategoryId">Categoría:</label>
         <select name="CategoryId" id="CategoryId" required>
-            <option value="">Seleccionar</option>
-            <% categories.forEach(category => { %>
-            <option value="<%= category.id %>"><%= category.nombre %></option>
-            <% }) %>
-          </select>
-        </div>
+          <option value="">Seleccionar</option>
+          <% categories.forEach(category => { %>
+          <option value="<%= category.id %>"><%= category.nombre %></option>
+          <% }) %>
+        </select>
       </div>
     </section>
     <section class="create-item">
@@ -136,7 +135,12 @@
     </section>
     <section class="create-actions">
       <input class="create-link" type="submit" value="Agregar Producto" />
-      <input class="create-link" type="button" value="Limpiar" onclick="resetForm()" />
+      <input
+        class="create-link"
+        type="button"
+        value="Limpiar"
+        onclick="resetForm()"
+      />
     </section>
   </form>
 </main>
@@ -150,8 +154,8 @@
 
   function resetForm() {
     var form = document.getElementById("createProductForm");
-  
+
     form.reset();
   }
-  </script>
+</script>
 <%- contentFor('title') %> Creación Producto - Funkoshop

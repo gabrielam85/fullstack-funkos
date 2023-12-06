@@ -7,6 +7,7 @@ const { validationResult } = require('express-validator');
 
 const model = require('../../models/Product');
 const modelCategory = require("../../models/Category");
+const modelLicence = require("../../models/Licence");
 
 const index = async (req, res) => {
 
@@ -31,7 +32,12 @@ const create = async (req, res) => {
 		const categories = await modelCategory.findAll({
 		  order: [["nombre", "ASC"]],
 		});
-		res.render("admin/product/create", { categories });
+
+		const licences = await modelLicence.findAll({
+			order: [["nombre", "ASC"]],
+		  });
+
+		res.render("admin/product/create", { categories, licences });
 	  } catch (error) {
 		console.log(error);
 		res.status(500).send(error);
@@ -46,13 +52,19 @@ const store = async (req, res) => {
 		  const categories = await modelCategory.findAll({
 			order: ["nombre"],
 		  });
+
+		  const licences = await modelLicence.findAll({
+			order: [["nombre"]],
+		  });
+
 		  return res.render("admin/product/create", {
 			categories,
+			licences,
 			values: req.body,
 			errors: errors.array(),
 		  });
+
 		} catch (error) {
-		  console.log(error);
 		  res.status(500).send(error);
 		}
 	  }
@@ -105,8 +117,10 @@ const edit = async (req, res) => {
   
 	  if (product) {
 		const categories = await modelCategory.findAll();
+		const licences = await modelLicence.findAll();
 
-		res.render("admin/product/edit", { values: product, categories });
+		res.render("admin/product/edit", { values: product, categories, licences });
+
 	  } else {
 		res.status(404).send("No existe el producto");
 	  }
@@ -123,8 +137,14 @@ const edit = async (req, res) => {
 		  const categories = await modelCategory.findAll({
 			order: [["nombre", "ASC"]],
 		  });
+
+		  const licences = await modelLicence.findAll({
+			order: [["nombre", "ASC"]],
+		  });
+
 		  return res.render("admin/product/edit", {
 			categories,
+			licences,
 			values: { ...req.params, ...req.body },
 			errors: errors.array(),
 		  });

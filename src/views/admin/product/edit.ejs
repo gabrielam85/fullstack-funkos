@@ -15,13 +15,16 @@
   >
     <section class="create-characteristic">
       <div class="create-item">
-        <label class="create-label" for="licencia">Licencia:</label>
-        <select name="licencia" id="licencia">
-          <option value="">Seleccionar</option>
-          <option value="figuras">Figuras</option>
-          <option value="llaveros">Llaveros</option>
-          <option value="remeras">Remeras</option>
-        </select>
+        <label class="create-label" for="LicenceId">Licencia:</label>
+        <select name="LicenceId" id="LicenceId" required>
+            <option value="">Seleccionar</option>
+            <% licences.forEach(licence => { %>
+              <option 
+                value="<%= licence.id %>" 
+                <%= licence.id == values.LicenceId ? "selected" : "" %> 
+              ><%= licence.nombre %></option>
+              <% }) %>
+          </select>
       </div>
       <div class="create-item">
         <label class="create-label" for="CategoryId">Categoría:</label>
@@ -34,7 +37,6 @@
               ><%= category.nombre %></option>
               <% }) %>
           </select>
-        </div>
       </div>
     </section>
     <section class="create-item">
