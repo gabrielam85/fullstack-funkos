@@ -1459,6 +1459,7 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
     .footer__copy {
         margin-top: var(--spacing-24);
     }
+
   /******* INDEX **************/
   .hero{
     padding: var(--spacing-16);
@@ -1564,6 +1565,15 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
   .login-link{
     width: 100%;
   }
+
+  .login-item{
+    justify-content: space-evenly;
+    gap: 0;
+  }
+
+  .login-text{
+    width: 50%;
+  }
   
   /***** REGISTER ******/
   .register-container{
@@ -1579,7 +1589,8 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
    }
 
   .register-item{
-    justify-content: space-between;
+    justify-content: space-evenly;
+    gap: 0;
    }
 
   .register-actions{
@@ -1589,6 +1600,10 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
 
    .register-submit{
     width: 100%;
+   }
+
+   .register-text{
+    width: 50%;
    }
 
   /***** CREATE ******/
@@ -1800,6 +1815,18 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
   .collection__cover img{
     width: 80%;
     margin: 0 10%;
+  }
+
+  .register-item, .login-item {
+    justify-content: space-between;
+  }
+
+  .collection__link {
+    margin: 0 30%;
+  }
+
+  .collection__title {
+    margin: 0 25%;
   }
 
 }
