@@ -36,12 +36,12 @@ const registerValidations = [
 	body("password")
 		.isStrongPassword({
 			minLength: 6,
-			minLowercase: 1,
+			//minLowercase: 1,
 			minUppercase: 1,
 			minNumbers:1,
-			minSymbols: 1,
+			//minSymbols: 1,
 		})
-		.withMessage("La contraseña debe tener...")
+		.withMessage("La contraseña debe tener por lo menos 6 caracteres, una mayúscula y un número")
 		.bail()
 		.custom((value, { req }) => value === req.body.password_confirmation)
 		.withMessage("Las contraseñas no coinciden"),
@@ -54,12 +54,12 @@ const loginValidations = [
 	body("password")
 		.isStrongPassword({
 		  minLength: 6,
-		  minLowercase: 1,
+		  //minLowercase: 1,
 		  minUppercase: 1,
 		  minNumbers: 1,
-		  minSymbols: 1,
+		  //minSymbols: 1,
 		})
-		.withMessage("La contraseña debe tener ..."),
+		.withMessage("La contraseña debe tener por lo menos 6 caracteres, una mayúscula y un número"),
 ];
 
 const controller = require('../controllers/authController');
