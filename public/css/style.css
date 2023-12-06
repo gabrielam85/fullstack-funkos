@@ -688,6 +688,12 @@ display: none;
   width: 30%;
 }
 
+.edit-images__container{
+  display: flex;
+  column-gap: var(--spacing-68);
+  align-items: flex-start;
+}
+
 .edit-cover{
   border-bottom: solid 2px var(--primary-solid);
 }
@@ -1651,6 +1657,10 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
    /***** EDIT *****/
    .edit-form select{
     width: 100%;
+   }
+
+   .edit-images__container{
+    flex-direction: column;
    }
 
    /***** SHOP *****/

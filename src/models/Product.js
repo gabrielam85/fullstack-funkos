@@ -38,14 +38,6 @@ const Product = sequelize.define('Product',{
         type: DataTypes.INTEGER,
         allowNull: true,
     },
-    urlFront: {
-        type: DataTypes.STRING,
-        allowNull: true,
-    },
-    urlBack: {
-        type: DataTypes.STRING,
-        allowNull: true,
-    },
     altFront: {
         type: DataTypes.STRING,
         allowNull: true,

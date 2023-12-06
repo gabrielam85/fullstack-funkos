@@ -73,7 +73,7 @@
         />
       </div>
       <div class="create-item">
-        <label class="create-label" for="precio">Precio:</label>
+        <label class="create-label" for="precio">Precio $:</label>
         <input
           class="create-text"
           type="text"
@@ -81,7 +81,7 @@
           id="precio"
           required
           placeholder="$ 1.799,00"
-          value="$ <%= values.precio %>"
+          value="<%= values.precio %>"
         />
       </div>
       <div class="create-item">
@@ -120,35 +120,35 @@
         </select>
       </div>
     </section>
-    <section class="edit-package__container">
+    <div class="edit-images__container">
+      <section class="edit-package__container">
       <div class="edit-package">
-        <input type="file" id="imagen" name="imagen" accept="image/*" />
+        <input type="file" id="imagenFront" name="imagenFront" accept="image/webp" required/>
         <picture class="edit-cover">
           <img
-              width="50"
-              src="/uploads/productos/producto_<%= values.id %>.jpg"
-              alt="<%= values.nombre %>"
-            />
-        </picture>
-      </div>
-    </section>
-    <!--<section class="edit-package__container">
-      <% if (values.urlFront && values.altFront) { %>
-      <div class="edit-package">
-        <picture class="edit-cover">
-          <img alt="<%= values.altFront %>" src="<%= values.urlFront %>" />
+            width="50"
+            src="/uploads/productos/producto_<%= values.id %>_front.webp"
+            alt="<%= values.nombre %> - Front"
+          />
           <figcaption>Frente</figcaption>
         </picture>
       </div>
-      <% } %> <% if (values.urlBack && values.altBack) { %>
+    </section>
+    
+    <section class="edit-package__container">
       <div class="edit-package">
+        <input type="file" id="imagenBack" name="imagenBack" accept="image/webp" required/>
         <picture class="edit-cover">
-          <img alt="<%= values.altBack %>" src="<%= values.urlBack %>" />
+          <img
+            width="50"
+            src="/uploads/productos/producto_<%= values.id %>_back.webp"
+            alt="<%= values.nombre %> - Back"
+          />
           <figcaption>Dorso</figcaption>
         </picture>
       </div>
-      <% } %>
-    </section>-->
+    </section>
+  </div>
     <section class="create-actions">
       <input class="create-link" type="submit" value="Modificar Producto" />
     </section>

@@ -4,7 +4,7 @@ const model_productos = require('../models/Product');
 const index = async (req, res) => {
     try{
         const products = await model_productos.findAll({ 
-            attributes: ["id", "nombre", "precio", "urlFront", "urlBack", "altFront", "altBack"],
+            attributes: ["id", "nombre", "precio", "altFront", "altBack"],
             order: [['nombre', 'ASC']]
         });
 

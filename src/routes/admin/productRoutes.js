@@ -58,10 +58,12 @@ const controller = require('../../controllers/admin/productController');
 router.get('/', controller.index);
 
 router.get('/create', controller.create);
-router.post('/create', upload.single("imagen"), validations, controller.store);
+//router.post('/create', upload.single("imagen"), validations, controller.store);
+router.post('/create', upload.fields([{ name: 'imagenFront', maxCount: 1 }, { name: 'imagenBack', maxCount: 1 }]), validations, controller.store);
 
 router.get('/edit/:id', controller.edit);
-router.put('/edit/:id', upload.single("imagen"), validations, controller.update);
+//router.put('/edit/:id', upload.single("imagen"), validations, controller.update);
+router.put('/edit/:id', upload.fields([{ name: 'imagenFront', maxCount: 1 }, { name: 'imagenBack', maxCount: 1 }]), validations, controller.update);
 
 router.delete('/:id', controller.destroy);
 

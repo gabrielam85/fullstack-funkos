@@ -23,7 +23,7 @@ const item = async (req, res) => {
         }
 
         const products = await model.findAll({ 
-            attributes: ["id", "nombre", "precio", "urlFront", "urlBack", "altFront", "altBack"],
+            attributes: ["id", "nombre", "precio", "altFront", "altBack"],
             order: [['nombre', 'ASC']]
         });
 
