@@ -9,51 +9,53 @@
     </article>
     <% if (cart && cart.CartItems) { %> <% cart.CartItems.forEach(cartItem => {
     %>
-    <div class="carrito__content">
-      <div class="carrito__item">
-        <picture class="carrito__cover">
-          <img
-            src="/uploads/productos/producto_<%= cartItem.Product.id %>_front.webp"
+    <form action="/shop/cart/delete/<%= cartItem.id %>" method="POST">
+      <div class="carrito__content">
+        <div class="carrito__item">
+          <picture class="carrito__cover">
+            <img
+              src="/uploads/productos/producto_<%= cartItem.Product.id %>_front.webp"
+            />
+          </picture>
+          <div class="carrito__description">
+            <h2 class="carrito__description-title">
+              <%= cartItem.Product.nombre %>
+            </h2>
+            <p class="carrito__description-text">
+              <% if (cartItem.Product.categoria) { %> <%=
+              cartItem.Product.categoria.nombre %> <% } %>
+            </p>
+            <p class="carrito__description-price">
+              precio: $<span id="price_<%= cartItem.Product.id %>">
+                <%= cartItem.Product.precio %>
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="carrito__item-quantity">
+          <input
+            id="quantity_<%= cartItem.Product.id %>"
+            type="text"
+            class="carrito_item-quantity_field"
+            placeholder="0"
+            value="<%= cartItem.Quantity %>"
           />
-        </picture>
-        <div class="carrito__description">
-          <h2 class="carrito__description-title">
-            <%= cartItem.Product.nombre %>
-          </h2>
+          <div class="carrito_item-quantity_buttons">
+            <!-- ... botones para ajustar cantidad ... -->
+          </div>
+        </div>
+        <div class="carrito__item-price">
           <p class="carrito__description-text">
-            <% if (cartItem.Product.categoria) { %> <%=
-            cartItem.Product.categoria.nombre %> <% } %>
-          </p>
-          <p class="carrito__description-price">
-            precio: $<span id="price_<%= cartItem.Product.id %>">
-              <%= cartItem.Product.precio %>
-            </span>
+            $<span id="total_<%= cartItem.Product.id %>"
+              ><%= cartItem.Product.precio * cartItem.Quantity %></span
+            >
           </p>
         </div>
+        <button class="carrito__trash" type="submit">
+          <i class="fa-regular fa-circle-xmark"></i>
+        </button>
       </div>
-      <div class="carrito__item-quantity">
-        <input
-          id="quantity_<%= cartItem.Product.id %>"
-          type="text"
-          class="carrito_item-quantity_field"
-          placeholder="0"
-          value="<%= cartItem.Quantity %>"
-        />
-        <div class="carrito_item-quantity_buttons">
-          <!-- ... botones para ajustar cantidad ... -->
-        </div>
-      </div>
-      <div class="carrito__item-price">
-        <p class="carrito__description-text">
-          $<span id="total_<%= cartItem.Product.id %>"
-            ><%= cartItem.Product.precio * cartItem.Quantity %></span
-          >
-        </p>
-      </div>
-      <button class="carrito__trash">
-        <i class="fa-regular fa-circle-xmark"></i>
-      </button>
-    </div>
+    </form>
     <% }); %> <% } else { %>
     <p class="error-text">No hay elementos en el carrito.</p>
     <% } %>

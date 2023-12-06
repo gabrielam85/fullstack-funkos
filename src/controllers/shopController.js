@@ -48,10 +48,8 @@ const cart = async (req, res) => {
             include: {
                 model: CartItem,
                 include: model,
-                attributes: ['Quantity', 'ProductId', 'CartId'],
             },
         });
-
 
         res.render(path.resolve(__dirname, '../views/shop/cart'), { cart });
     } catch (error) {
@@ -94,9 +92,28 @@ const addToCart = async (req, res) => {
     }
   };
 
+  const deleteCartItem = async (req, res) => {
+    try {
+        const cartItemId = req.params.cartItem;
+        
+        const cartItem = await CartItem.findByPk(cartItemId);
+        if (cartItem) {
+            console.log('Producto eliminado correctamente.');
+            await cartItem.destroy();
+        }
+
+        res.redirect('/shop/cart');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error al eliminar el producto del carrito');
+    }
+  };
+  
+
 module.exports = {
     shop,
     item,
     cart,
     addToCart,
+    deleteCartItem,
 };

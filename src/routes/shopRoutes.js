@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const modelUser = require('../models/User');
 
-const shopControllers = require('../controllers/shopController');
+const controller = require('../controllers/shopController');
 
 const loadUser = async (req, res, next) => {
     if (req.session.userId) {
@@ -21,10 +21,13 @@ const loadUser = async (req, res, next) => {
 //Se aplica a todas las rutas de shop
 router.use(loadUser);
 
-router.get('/', shopControllers.shop);
-router.get('/item/:id', shopControllers.item);
-router.post('/item/:id/add', shopControllers.addToCart);
-router.get('/cart', shopControllers.cart);
-router.post('/cart', shopControllers.cart);
+router.get('/', controller.shop);
+
+router.get('/item/:id', controller.item);
+router.post('/item/:id/add', controller.addToCart);
+
+router.get('/cart', controller.cart);
+
+router.post('/cart/delete/:cartItem', controller.deleteCartItem);
 
 module.exports = router;
