@@ -18,6 +18,10 @@ const Product = sequelize.define('Product',{
         type: DataTypes.INTEGER,
         allowNull: false
     },
+    LicenceId: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
     metodo_pago: {
         type: DataTypes.STRING,
         allowNull: true,
@@ -38,14 +42,14 @@ const Product = sequelize.define('Product',{
         type: DataTypes.INTEGER,
         allowNull: true,
     },
-    altFront: {
-        type: DataTypes.STRING,
-        allowNull: true,
-    },
-    altBack: {
-        type: DataTypes.STRING,
-        allowNull: true,
-    },
+    //altFront: {
+    //    type: DataTypes.STRING,
+    //    allowNull: true,
+    //},
+    //altBack: {
+    //    type: DataTypes.STRING,
+    //    allowNull: true,
+    //},
 });
 
 Product.belongsTo(Category);

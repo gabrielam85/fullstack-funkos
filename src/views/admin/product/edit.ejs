@@ -15,8 +15,8 @@
   >
     <section class="create-characteristic">
       <div class="create-item">
-        <label class="create-label" for="tipo">Tipo:</label>
-        <select name="tipo" id="tipo">
+        <label class="create-label" for="licencia">Licencia:</label>
+        <select name="licencia" id="licencia">
           <option value="">Seleccionar</option>
           <option value="figuras">Figuras</option>
           <option value="llaveros">Llaveros</option>
@@ -154,4 +154,12 @@
     </section>
   </form>
 </main>
+<script>
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", (event) => {
+    const btn = document.querySelector('button[type="submit"]');
+    btn.setAttribute("disabled", true);
+  });
+  </script>
 <%- contentFor('title') %> Edición Producto - Funkoshop
