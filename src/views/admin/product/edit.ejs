@@ -73,7 +73,7 @@
         />
       </div>
       <div class="create-item">
-        <label class="create-label" for="precio">Precio:</label>
+        <label class="create-label" for="precio">Precio $:</label>
         <input
           class="create-text"
           type="text"
@@ -81,7 +81,7 @@
           id="precio"
           required
           placeholder="$ 1.799,00"
-          value="$ <%= values.precio %>"
+          value="<%= values.precio %>"
         />
       </div>
       <div class="create-item">
@@ -123,7 +123,7 @@
     <div class="edit-images__container">
       <section class="edit-package__container">
       <div class="edit-package">
-        <input type="file" id="imagen" name="imagen" accept="image/*" />
+        <input type="file" id="imagenFront" name="imagenFront" accept="image/*" />
         <picture class="edit-cover">
           <img
             width="50"

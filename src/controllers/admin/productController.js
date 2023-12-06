@@ -123,7 +123,7 @@ const edit = async (req, res) => {
 		  const categories = await modelCategory.findAll({
 			order: [["nombre", "ASC"]],
 		  });
-		  return res.render("/product/edit", {
+		  return res.render("admin/product/edit", {
 			categories,
 			values: { ...req.params, ...req.body },
 			errors: errors.array(),
