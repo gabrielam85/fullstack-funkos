@@ -117,30 +117,21 @@
       </div>
     </section>
     <section class="create-item">
-      <label class="create-label" for="imagen">Imagen:</label>
+      <label class="create-label" for="imagenFront">Imagen Frente:</label>
       <input
         type="file"
-        id="imagen"
-        name="imagen"
+        id="imagenFront"
+        name="imagenFront"
+        accept="image/*"
+      />
+      <label class="create-label" for="imagenBack">Imagen Dorso:</label>
+      <input
+        type="file"
+        id="imagenBack"
+        name="imagenBack"
         accept="image/*"
       />
     </section>
-    <!--<section class="create-item">
-      <label class="create-label" for="imagen-frente">Imagen Frente:</label>
-      <input
-        type="file"
-        id="imagen-frente"
-        name="imagen-frente"
-        accept="image/*"
-      />
-      <label class="create-label" for="imagen-dorso">Imagen Dorso:</label>
-      <input
-        type="file"
-        id="imagen-dorso"
-        name="imagen-dorso"
-        accept="image/*"
-      />
-    </section>-->
     <section class="create-actions">
       <input class="create-link" type="submit" value="Agregar Producto" />
       <input class="create-link" type="button" value="Limpiar" onclick="resetForm()" />

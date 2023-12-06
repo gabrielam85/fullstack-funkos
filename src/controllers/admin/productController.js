@@ -60,13 +60,35 @@ const store = async (req, res) => {
 	try {
 	  const product = await model.create(req.body);
 	  
-	  if (req.file) {
-		sharp(req.file.buffer)
+	  //if (req.file) {
+	//	sharp(req.file.buffer)
+	//	  .resize(300)
+	//	  .toFile(
+	//		path.resolve(
+	//		  __dirname,
+	//		  `../../../public/uploads/productos/producto_${product.id}.jpg`
+	//		)
+	//	  );
+	  //}
+
+	  if (req.files && req.files.imagenFront && req.files.imagenFront[0]) {
+		sharp(req.files.imagenFront[0].buffer)
 		  .resize(300)
 		  .toFile(
 			path.resolve(
 			  __dirname,
-			  `../../../public/uploads/productos/producto_${product.id}.jpg`
+			  `../../../public/uploads/productos/producto_${product.id}_front.jpg`
+			)
+		  );
+	  }
+
+	  if (req.files && req.files.imagenBack && req.files.imagenBack[0]) {
+		sharp(req.files.imagenBack[0].buffer)
+		  .resize(300)
+		  .toFile(
+			path.resolve(
+			  __dirname,
+			  `../../../public/uploads/productos/producto_${product.id}_back.jpg`
 			)
 		  );
 	  }
@@ -119,13 +141,35 @@ const edit = async (req, res) => {
 		},
 	  });
 
-	  if (req.file) {
-		sharp(req.file.buffer)
+	  //if (req.file) {
+	//	sharp(req.file.buffer)
+	//	  .resize(300)
+	//	  .toFile(
+	//		path.resolve(
+	//		  __dirname,
+	//		  `../../../public/uploads/productos/producto_${req.params.id}.jpg`
+	//		)
+	//	  );
+	  //}
+
+	  if (req.files && req.files.imagenFront && req.files.imagenFront[0]) {
+		sharp(req.files.imagenFront[0].buffer)
 		  .resize(300)
 		  .toFile(
 			path.resolve(
 			  __dirname,
-			  `../../../public/uploads/productos/producto_${req.params.id}.jpg`
+			  `../../../public/uploads/productos/producto_${req.params.id}_front.jpg`
+			)
+		  );
+	  }
+
+	  if (req.files && req.files.imagenBack && req.files.imagenBack[0]) {
+		sharp(req.files.imagenBack[0].buffer)
+		  .resize(300)
+		  .toFile(
+			path.resolve(
+			  __dirname,
+			  `../../../public/uploads/productos/producto_${req.params.id}_back.jpg`
 			)
 		  );
 	  }
