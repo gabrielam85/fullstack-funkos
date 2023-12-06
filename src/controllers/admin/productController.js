@@ -77,7 +77,7 @@ const store = async (req, res) => {
 		  .toFile(
 			path.resolve(
 			  __dirname,
-			  `../../../public/uploads/productos/producto_${product.id}_front.jpg`
+			  `../../../public/uploads/productos/producto_${product.id}_front.webp`
 			)
 		  );
 	  }
@@ -88,7 +88,7 @@ const store = async (req, res) => {
 		  .toFile(
 			path.resolve(
 			  __dirname,
-			  `../../../public/uploads/productos/producto_${product.id}_back.jpg`
+			  `../../../public/uploads/productos/producto_${product.id}_back.webp`
 			)
 		  );
 	  }
@@ -158,7 +158,7 @@ const edit = async (req, res) => {
 		  .toFile(
 			path.resolve(
 			  __dirname,
-			  `../../../public/uploads/productos/producto_${req.params.id}_front.jpg`
+			  `../../../public/uploads/productos/producto_${req.params.id}_front.webp`
 			)
 		  );
 	  }
@@ -169,7 +169,7 @@ const edit = async (req, res) => {
 		  .toFile(
 			path.resolve(
 			  __dirname,
-			  `../../../public/uploads/productos/producto_${req.params.id}_back.jpg`
+			  `../../../public/uploads/productos/producto_${req.params.id}_back.webp`
 			)
 		  );
 	  }
@@ -192,7 +192,7 @@ const destroy = async(req, res) => {
 			fs.unlink(
 				path.resolve(
 					__dirname,
-					`../../../public/uploads/productos/producto_${req.params.id}.jpg`
+					`../../../public/uploads/productos/producto_${req.params.id}.webp`
 			),
 			(error) => {
 				if(error){

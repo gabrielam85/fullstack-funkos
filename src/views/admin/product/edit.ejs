@@ -123,11 +123,11 @@
     <div class="edit-images__container">
       <section class="edit-package__container">
       <div class="edit-package">
-        <input type="file" id="imagenFront" name="imagenFront" accept="image/*" />
+        <input type="file" id="imagenFront" name="imagenFront" accept="image/webp" />
         <picture class="edit-cover">
           <img
             width="50"
-            src="/uploads/productos/producto_<%= values.id %>_front.jpg"
+            src="/uploads/productos/producto_<%= values.id %>_front.webp"
             alt="<%= values.nombre %> - Front"
           />
           <figcaption>Frente</figcaption>
@@ -137,11 +137,11 @@
     
     <section class="edit-package__container">
       <div class="edit-package">
-        <input type="file" id="imagenBack" name="imagenBack" accept="image/*" />
+        <input type="file" id="imagenBack" name="imagenBack" accept="image/webp" />
         <picture class="edit-cover">
           <img
             width="50"
-            src="/uploads/productos/producto_<%= values.id %>_back.jpg"
+            src="/uploads/productos/producto_<%= values.id %>_back.webp"
             alt="<%= values.nombre %> - Back"
           />
           <figcaption>Dorso</figcaption>
