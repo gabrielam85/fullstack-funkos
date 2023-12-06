@@ -38,6 +38,13 @@
   </form>
 </main>
 <script>
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", (event) => {
+    const btn = document.querySelector('button[type="submit"]');
+    btn.setAttribute("disabled", true);
+  });
+
   function resetForm() {
     var form = document.getElementById("createCategoryForm");
 
