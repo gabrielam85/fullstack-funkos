@@ -35,10 +35,6 @@ const item = async (req, res) => {
     }
 };
 
-//const cart = (req, res) => {
-//    res.render(path.resolve(__dirname, '../views/shop/cart'));
-//};
-
 const cart = async (req, res) => {
     try {
         const userId = req.user.id;
@@ -66,35 +62,47 @@ const cart = async (req, res) => {
 
 const addToCart = async (req, res) => {
     try {
-        const userId = req.user.id; // Supongamos que el ID del usuario está disponible en req.user después de la autenticación.
-        const productId = req.params.productId; // ID del producto que el usuario desea agregar al carrito.
-
-        // Verificar si el usuario tiene un carrito activo
-        let cart = await Cart.findOne({
-            where: { UserId: userId, status: 'active' }
+      const userId = req.user.id;
+      const productId = req.params.id;
+      const quantity = req.body.quantity || 1; // Si no se proporciona una cantidad, usa 1 por defecto
+  
+      // Verificar si el usuario tiene un carrito activo
+      let cart = await Cart.findOne({
+        where: { UserId: userId, status: 'active' }
+      });
+  
+      // Si no tiene un carrito activo, crea uno
+      if (!cart) {
+        cart = await Cart.create({
+          UserId: userId,
+          status: 'active'
         });
-
-        // Si no tiene un carrito activo, crea uno
-        if (!cart) {
-            cart = await Cart.create({
-                UserId: userId,
-                status: 'active'
-            });
-        }
-
-        // Agregar el producto al carrito
+      }
+  
+      // Verificar si el producto ya está en el carrito
+      const existingCartItem = await CartItem.findOne({
+        where: { CartId: cart.id, ProductId: productId }
+      });
+  
+      // Si ya existe, simplemente actualiza la cantidad
+      if (existingCartItem) {
+        existingCartItem.quantity += parseInt(quantity, 10);
+        await existingCartItem.save();
+      } else {
+        // Si no existe, crea un nuevo elemento de carrito
         await CartItem.create({
-            CartId: cart.id,
-            ProductId: productId,
-            Quantity: 1 // Puedes ajustar esto según tu lógica de cantidad
+          CartId: cart.id,
+          ProductId: productId,
+          Quantity: quantity
         });
-
-        res.redirect('/shop/cart');
+      }
+  
+      res.redirect('/shop/cart');
     } catch (error) {
-        console.error(error);
-        res.status(500).send('Error al agregar el producto al carrito');
+      console.error(error);
+      res.status(500).send('Error al agregar el producto al carrito');
     }
-};
+  };
 
 module.exports = {
     shop,
