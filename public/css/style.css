@@ -1366,7 +1366,7 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
   border-collapse: collapse;
   min-width: 100%;
   padding: var(--spacing-24) 0;
-  grid-template-columns: 1fr 2fr 0.5fr;
+  grid-template-columns: 0.5fr 2fr 0.5fr;
   grid-column-gap: 0px;
   text-align: left;
 }
