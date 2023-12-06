@@ -1789,6 +1789,12 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
 
   .carrito__item{
     order: 2;
+    grid-template-columns: 1fr;
+  }
+
+  .carrito__description-title,
+  .carrito__description-price{
+    text-align: center;
   }
 
   .carrito__item-quantity{
