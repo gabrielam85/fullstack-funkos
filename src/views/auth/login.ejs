@@ -1,7 +1,7 @@
 <main class="login-container container">
   <h1 class="login-title">INGRESAR A MI CUENTA</h1>
   <% if (typeof errors != 'undefined') { %>
-  <ul>
+  <ul class="list-errors">
     <% errors.forEach(error => { %>
     <li><%= error.msg %></li>
     <% }) %>

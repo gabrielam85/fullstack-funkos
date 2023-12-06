@@ -144,6 +144,12 @@
     font-size: var(--font-small);
   }
 
+  .list-errors{
+    font-size: var(--font-medium);
+    color: var(--primary-solid);
+    font-weight: 600;
+  }
+
   /*******  TERMINOS Y CONDICIONES   *****/
   .terminosCondiciones{
     font-size: var(--font-medium);
@@ -1376,6 +1382,10 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
 
 /******* MEDIA QUERIES ******/
 @media screen and (max-width: 768px) {
+
+  .list-errors{
+    font-size: var(--font-small);
+  }
 
     /******* HEADER ***********/
     header{

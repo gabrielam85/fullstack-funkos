@@ -1,5 +1,12 @@
 <main class="create-container container">
   <h1 class="create-title">CREAR NUEVO ITEM</h1>
+  <% if (typeof errors != 'undefined') { %>
+    <ul class="list-errors">
+      <% errors.forEach(error => { %>
+      <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+    <% } %>
   <form
     id="createProductForm"
     class="create-form"
@@ -19,7 +26,7 @@
       </div>
       <div class="create-item">
         <label class="create-label" for="CategoryId">Categoría:</label>
-        <select name="CategoryId" id="CategoryId">
+        <select name="CategoryId" id="CategoryId" required>
             <option value="">Seleccionar</option>
             <% categories.forEach(category => { %>
             <option value="<%= category.id %>"><%= category.nombre %></option>
@@ -82,20 +89,21 @@
           name="stock"
           id="stock"
           placeholder="0"
-          required
         />
       </div>
     </section>
     <section class="create-characteristic">
       <div class="create-item">
-        <label class="create-label" for="descuento">Descuento:</label>
+        <label class="create-label" for="descuento">Descuento %:</label>
         <input
           class="create-text"
-          type="text"
+          type="number"
           name="descuento"
           id="descuento"
           placeholder="0%"
-          required
+          value="0"
+          min="0"
+          max="100"
         />
       </div>
       <div class="create-item">

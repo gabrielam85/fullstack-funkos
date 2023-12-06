@@ -1,5 +1,12 @@
 <main class="create-container container category-container">
   <h1 class="create-title">CREAR NUEVA CATEGORÍA</h1>
+  <% if (typeof errors != 'undefined') { %>
+  <ul class="list-errors">
+    <% errors.forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+  <% } %>
   <form
     id="createCategoryForm"
     class="create-form"
