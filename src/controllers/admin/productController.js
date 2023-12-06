@@ -155,46 +155,46 @@ const edit = async (req, res) => {
 	  }
   
 	try {
-	  const count = await model.update(req.body, {
-		where: {
-		  id: req.params.id,
-		},
-	  });
+		const count = await model.update(req.body, {
+			where: {
+			id: req.params.id,
+			},
+		});
 
-	  //if (req.file) {
-	//	sharp(req.file.buffer)
-	//	  .resize(300)
-	//	  .toFile(
-	//		path.resolve(
-	//		  __dirname,
-	//		  `../../../public/uploads/productos/producto_${req.params.id}.jpg`
-	//		)
-	//	  );
-	  //}
+		//if (req.file) {
+			//	sharp(req.file.buffer)
+			//	  .resize(300)
+			//	  .toFile(
+			//		path.resolve(
+			//		  __dirname,
+			//		  `../../../public/uploads/productos/producto_${req.params.id}.jpg`
+			//		)
+			//	  );
+		//}
 
-	  if (req.files && req.files.imagenFront && req.files.imagenFront[0]) {
-		sharp(req.files.imagenFront[0].buffer)
-		  .resize(300)
-		  .toFile(
-			path.resolve(
-			  __dirname,
-			  `../../../public/uploads/productos/producto_${req.params.id}_front.webp`
-			)
-		  );
-	  }
+		if (req.files && req.files.imagenFront && req.files.imagenFront[0]) {
+			sharp(req.files.imagenFront[0].buffer)
+			.resize(300)
+			.toFile(
+				path.resolve(
+				__dirname,
+				`../../../public/uploads/productos/producto_${req.params.id}_front.webp`
+				)
+			);
+		}
 
-	  if (req.files && req.files.imagenBack && req.files.imagenBack[0]) {
-		sharp(req.files.imagenBack[0].buffer)
-		  .resize(300)
-		  .toFile(
-			path.resolve(
-			  __dirname,
-			  `../../../public/uploads/productos/producto_${req.params.id}_back.webp`
-			)
-		  );
-	  }
-  
-	  res.redirect("/product");
+		if (req.files && req.files.imagenBack && req.files.imagenBack[0]) {
+			sharp(req.files.imagenBack[0].buffer)
+			.resize(300)
+			.toFile(
+				path.resolve(
+				__dirname,
+				`../../../public/uploads/productos/producto_${req.params.id}_back.webp`
+				)
+			);
+		}
+		
+		res.redirect("/product");
 	} catch (error) {
 	  console.log(error);
 	  res.send(error);

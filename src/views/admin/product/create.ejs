@@ -17,7 +17,7 @@
     <section class="create-characteristic">
       <div class="create-item">
         <label class="create-label" for="LicenceId">Licencia:</label>
-        <select name="LicenceId" id="LicenceId" required>
+        <select name="LicenceId" id="LicenceId">
           <option value="">Seleccionar</option>
           <% licences.forEach(licence => { %>
           <option value="<%= licence.id %>"><%= licence.nombre %></option>
@@ -122,7 +122,6 @@
         id="imagenFront"
         name="imagenFront"
         accept="image/webp"
-        required
       />
       <label class="create-label" for="imagenBack">Imagen Dorso:</label>
       <input
@@ -130,7 +129,6 @@
         id="imagenBack"
         name="imagenBack"
         accept="image/webp"
-        required
       />
     </section>
     <section class="create-actions">

@@ -16,7 +16,7 @@
     <section class="create-characteristic">
       <div class="create-item">
         <label class="create-label" for="LicenceId">Licencia:</label>
-        <select name="LicenceId" id="LicenceId" required>
+        <select name="LicenceId" id="LicenceId" >
             <option value="">Seleccionar</option>
             <% licences.forEach(licence => { %>
               <option 
@@ -125,7 +125,7 @@
     <div class="edit-images__container">
       <section class="edit-package__container">
       <div class="edit-package">
-        <input type="file" id="imagenFront" name="imagenFront" accept="image/webp" required/>
+        <input type="file" id="imagenFront" name="imagenFront" accept="image/webp"/>
         <picture class="edit-cover">
           <img
             width="50"
@@ -139,7 +139,7 @@
     
     <section class="edit-package__container">
       <div class="edit-package">
-        <input type="file" id="imagenBack" name="imagenBack" accept="image/webp" required/>
+        <input type="file" id="imagenBack" name="imagenBack" accept="image/webp"/>
         <picture class="edit-cover">
           <img
             width="50"
