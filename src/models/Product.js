@@ -2,6 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('./connection');
 
 const Category = require("./Category");
+const Licence = require("./Licence");
 
 const Product = sequelize.define('Product',{
     nombre:{
@@ -53,5 +54,6 @@ const Product = sequelize.define('Product',{
 });
 
 Product.belongsTo(Category);
+Product.belongsTo(Licence);
 
 module.exports = Product;

@@ -1,0 +1,68 @@
+<main class="admin__container">
+  <section class="search-product__container container">
+    <form action="/licence/search" method="get" class="filter-form">
+      <button type="submit" class="search-button">
+        <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
+      </button>
+      <input
+        class="search-product__input"
+        name="search"
+        placeholder="licencia"
+      />
+    </form>
+  </section>
+  <section class="container add-product__container">
+    <h1 class="add-product__title">LISTADO DE LICENCIAS</h1>
+    <div class="add-product__button-container">
+      <a href="/licence/create">
+        <p class="add-product__legend">AGREGAR</p>
+        <i class="fa-solid fa-square-plus add-product__button"></i>
+      </a>
+    </div>
+  </section>
+  <section class="product__container container">
+    <table id="listado_productos" class="category__table">
+      <thead class="product__table__head">
+        <tr class="product__table__row">
+          <th class="product__table__th">ID</th>
+          <th class="product__table__th">Licencia</th>
+          <th class="product__table__th"></th>
+        </tr>
+      </thead>
+      <tbody class="product__table__body">
+        <% licences.forEach(licence => { %>
+        <tr class="product__table__row">
+          <td class="product__table__data"><%= licence.id %></td>
+          <td class="product__table__data"><%= licence.nombre %></td>
+          <td class="product__table__actions product__table__data">
+            <a href="/licence/edit/<%= licence.id %>"
+              ><button type="button"><i class="fa-solid fa-pen"></i></button
+            ></a>
+            <form
+              class="form-delete"
+              action="/licence/delete/<%= licence.id %>?_method=DELETE"
+              method="post"
+            >
+              <button type="submit">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </section>
+</main>
+<script>
+  document.addEventListener("submit", (event) => {
+    if (event.target.classList.contains("form-delete")) {
+      event.preventDefault();
+
+      if (confirm("¿Está seguro que quiere eliminar la licencia?")) {
+        event.target.submit();
+      }
+    }
+  });
+</script>
+<%- contentFor('title') %> Licencias - Funkoshop

@@ -19,6 +19,7 @@ const mainRoutes = require('./src/routes/mainRoutes');
 const shopRoutes = require('./src/routes/shopRoutes');
 const productRoutes = require('./src/routes/admin/productRoutes');
 const categoryRoutes = require('./src/routes/admin/categoryRoutes');
+const licenceRoutes = require('./src/routes/admin/licenceRoutes');
 const authRoutes = require('./src/routes/authRoutes');
 
 const sequelize = require('./src/models/connection');
@@ -60,6 +61,11 @@ app.use('/category', isLogin, (req, res, next) => {
     app.set('layout', 'layouts/adminLayout');
     next();
 });
+// Layout para "/licence"
+app.use('/licence', isLogin, (req, res, next) => {
+    app.set('layout', 'layouts/adminLayout');
+    next();
+});
 
 app.use(expressLayouts); //siempre se coloca despues de definir el view engine
 
@@ -70,6 +76,7 @@ app.use('/', mainRoutes);
 app.use('/shop', shopRoutes);
 app.use('/product', productRoutes);
 app.use('/category', categoryRoutes);
+app.use('/licence', licenceRoutes);
 app.use('/auth', authRoutes);
 
 app.use((req, res, next) => {
