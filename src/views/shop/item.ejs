@@ -3,19 +3,17 @@
     <picture class="item__cover">
       <img
         class="item__cover__front"
-        src="<%= item.altFront %>"
-        alt="<%= item.altFront %>"
+        src="/uploads/productos/producto_<%= item.id %>_front.webp"
       />
       <img
         class="item__cover__back"
-        src="<%= item.altBack %>"
-        alt="<%= item.altBack %>"
+        src="/uploads/productos/producto_<%= item.id %>_back.webp"
       />
     </picture>
     <article class="item__content">
       <p class="item__licence"><%= item.categoria %></p>
       <h3 class="item__title"><%= item.nombre %></h3>
-      <p class="item__text"><%= item.altFront %></p>
+      <p class="item__text"><%= item.descripcion %></p>
       <p class="item__price">$ <%= item.precio %></p>
       <div class="item__cart">
         <button id="subtract" class="item__quantity" type="button">-</button>
