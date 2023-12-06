@@ -5,9 +5,20 @@ const CartItem = require('../models/CartItem');
 
 const shop = async (req, res) => {
     try{
-        const products = await model.findAll({ 
+        const categoryId = req.query.category; 
+        let products;
+
+        if (categoryId) {
+          products = await model.findAll({
+              where: { CategoryId: categoryId },
+              order: [['nombre', 'ASC']]
+          });
+        } else {
+          products = await model.findAll({ 
             order: [['nombre', 'ASC']] 
-        });
+          });
+        }
+
         res.render(path.resolve(__dirname, '../views/shop/shop'), { products });
     } catch(error){
         console.log(error);
