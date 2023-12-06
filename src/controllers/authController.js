@@ -62,6 +62,7 @@ const postLogin = async (req, res) => {
 			});
 		} else {
 			req.session.userId = user.id;
+			req.user = user;
 
 			res.redirect("/product");
 		}

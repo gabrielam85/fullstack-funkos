@@ -7,7 +7,58 @@
       <p class="carrito__content-column">total</p>
       <p class="carrito__content-column"></p>
     </article>
+    <% if (cart && cart.CartItems) { %> <% cart.CartItems.forEach(cartItem => {
+    %>
     <div class="carrito__content">
+      <div class="carrito__item">
+        <picture class="carrito__cover">
+          <img
+            src="/uploads/productos/producto_<%= cartItem.Product.id %>_front.webp"
+          />
+        </picture>
+        <div class="carrito__description">
+          <h2 class="carrito__description-title">
+            <%= cartItem.Product.nombre %>
+          </h2>
+          <p class="carrito__description-text">
+            <% if (cartItem.Product.categoria) { %> <%=
+            cartItem.Product.categoria.nombre %> <% } %>
+          </p>
+          <p class="carrito__description-price">
+            precio: $<span id="price_<%= cartItem.Product.id %>">
+              <%= cartItem.Product.precio %>
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="carrito__item-quantity">
+        <input
+          id="quantity_<%= cartItem.Product.id %>"
+          type="text"
+          class="carrito_item-quantity_field"
+          placeholder="0"
+          value="<%= cartItem.Quantity %>"
+        />
+        <div class="carrito_item-quantity_buttons">
+          <!-- ... botones para ajustar cantidad ... -->
+        </div>
+      </div>
+      <div class="carrito__item-price">
+        <p class="carrito__description-text">
+          $<span id="total_<%= cartItem.Product.id %>"
+            ><%= cartItem.Product.precio * cartItem.Quantity %></span
+          >
+        </p>
+      </div>
+      <button class="carrito__trash">
+        <i class="fa-regular fa-circle-xmark"></i>
+      </button>
+    </div>
+    <% }); %> <% } else { %>
+    <p class="error-text">No hay elementos en el carrito.</p>
+    <% } %>
+
+    <!--<div class="carrito__content">
       <div class="carrito__item">
         <picture class="carrito__cover">
           <img src="../img/star-wars/baby-yoda.webp" alt="baby yoda" />
@@ -43,8 +94,8 @@
       <button class="carrito__trash">
         <i class="fa-regular fa-circle-xmark"></i>
       </button>
-    </div>
-    <div class="carrito__content">
+    </div>-->
+    <!--<div class="carrito__content">
       <div class="carrito__item">
         <picture class="carrito__cover">
           <img src="../img/pokemon/pidgeotto.webp" alt="pidgeotto" />
@@ -80,7 +131,7 @@
       <button class="carrito__trash">
         <i class="fa-regular fa-circle-xmark"></i>
       </button>
-    </div>
+    </div>-->
   </section>
 
   <section class="pay__container">
