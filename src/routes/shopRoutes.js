@@ -30,4 +30,6 @@ router.get('/cart', controller.cart);
 
 router.post('/cart/delete/:cartItem', controller.deleteCartItem);
 
+router.post('/cart/checkout', controller.checkout);
+
 module.exports = router;

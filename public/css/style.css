@@ -859,6 +859,7 @@ display: none;
   font-size: var(--font-medium);
   color: var(--light-bg-solid);
   padding: var(--spacing-8) var(--spacing-8);
+  background-color: transparent;
 }
 
 .pay__button:hover {
@@ -1886,12 +1887,30 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
   }
 
   .collection__link {
-    margin: 0 30%;
+    margin: 0 31%;
   }
 
   .collection__title {
     margin: 0 25%;
   }
+
+  .grid__items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid__item {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .card-item {
+    padding: 0;
+  }
+
+  .item.container {
+    padding-bottom: 0;
+    border-bottom: none;
+}
 
 }
 

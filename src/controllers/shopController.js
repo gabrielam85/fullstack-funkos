@@ -37,7 +37,8 @@ const item = async (req, res) => {
 
         const products = await model.findAll({ 
             attributes: ["id", "nombre", "precio", "altFront", "altBack"],
-            order: [['nombre', 'ASC']]
+            order: [['updatedAt', 'DESC']],
+            limit: 6,
         });
 
         res.render(path.resolve(__dirname, '../views/shop/item'), { products, item });
@@ -62,7 +63,13 @@ const cart = async (req, res) => {
             },
         });
 
-        res.render(path.resolve(__dirname, '../views/shop/cart'), { cart });
+        const cartItemsQuantity = cart ? cart.CartItems.reduce((total, item) =>
+         total + item.Quantity, 0) : 0;
+
+        const cartItemsSubtotal = cart ? cart.CartItems.reduce((total, item) => 
+        total + (item.Quantity * item.Product.precio), 0) : 0;
+
+        res.render(path.resolve(__dirname, '../views/shop/cart'), { cart, cartItemsQuantity, cartItemsSubtotal });
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al obtener el carrito');
@@ -123,12 +130,41 @@ const addToCart = async (req, res) => {
       res.status(500).send('Error al eliminar el producto del carrito');
     }
   };
-  
 
+  const checkout = async (req, res) => {
+    try {
+      const userId = req.user.id;
+  
+      if (!userId) {
+        return res.redirect("/auth/login");
+      }
+  
+      const cart = await Cart.findOne({
+        where: { UserId: userId, status: 'active' },
+        include: {
+          model: CartItem,
+          include: model,
+        },
+      });
+  
+      if (cart) {
+        await cart.update({ status: 'inactive' });
+  
+        return res.redirect("/");
+      }
+  
+      res.status(404).send('Carrito no encontrado');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error al procesar el pago');
+    }
+  };
+  
 module.exports = {
     shop,
     item,
     cart,
     addToCart,
     deleteCartItem,
+    checkout,
 };
