@@ -124,12 +124,41 @@ const addToCart = async (req, res) => {
       res.status(500).send('Error al eliminar el producto del carrito');
     }
   };
-  
 
+  const checkout = async (req, res) => {
+    try {
+      const userId = req.user.id;
+  
+      if (!userId) {
+        return res.redirect("/auth/login");
+      }
+  
+      const cart = await Cart.findOne({
+        where: { UserId: userId, status: 'active' },
+        include: {
+          model: CartItem,
+          include: model,
+        },
+      });
+  
+      if (cart) {
+        await cart.update({ status: 'inactive' });
+  
+        return res.redirect("/");
+      }
+  
+      res.status(404).send('Carrito no encontrado');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error al procesar el pago');
+    }
+  };
+  
 module.exports = {
     shop,
     item,
     cart,
     addToCart,
     deleteCartItem,
+    checkout,
 };

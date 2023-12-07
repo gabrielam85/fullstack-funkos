@@ -859,6 +859,7 @@ display: none;
   font-size: var(--font-medium);
   color: var(--light-bg-solid);
   padding: var(--spacing-8) var(--spacing-8);
+  background-color: transparent;
 }
 
 .pay__button:hover {
