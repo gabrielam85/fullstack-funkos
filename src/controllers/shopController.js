@@ -63,7 +63,13 @@ const cart = async (req, res) => {
             },
         });
 
-        res.render(path.resolve(__dirname, '../views/shop/cart'), { cart });
+        const cartItemsQuantity = cart ? cart.CartItems.reduce((total, item) =>
+         total + item.Quantity, 0) : 0;
+
+        const cartItemsSubtotal = cart ? cart.CartItems.reduce((total, item) => 
+        total + (item.Quantity * item.Product.precio), 0) : 0;
+
+        res.render(path.resolve(__dirname, '../views/shop/cart'), { cart, cartItemsQuantity, cartItemsSubtotal });
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al obtener el carrito');

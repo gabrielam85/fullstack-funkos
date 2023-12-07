@@ -141,19 +141,27 @@
       <section class="pay__content">
         <div class="pay__content-line">
           <p>cantidad de elementos</p>
-          <p id="cart__quantity">0</p>
+          <p id="cart__quantity"><%= cartItemsQuantity %></p>
         </div>
         <div class="pay__content-line">
           <p>subtotal</p>
-          <p>$<span id="cart__subtotal">0,00</span></p>
+          <p>
+            $<span id="cart__subtotal"
+              ><%= cartItemsSubtotal.toFixed(2) %></span
+            >
+          </p>
         </div>
         <div class="pay__content-line">
           <p>envío</p>
-          <p>$<span id="cart__delivery">0,00</span></p>
+          <p>$<span id="cart__delivery">800,00</span></p>
         </div>
         <div class="pay__content-line total-line">
           <p>total</p>
-          <p>$<span id="cart__total">0,00</span></p>
+          <p>
+            $<span id="cart__total"
+              ><%= (cartItemsSubtotal + 800).toFixed(2) %></span
+            >
+          </p>
         </div>
       </section>
     </div>
