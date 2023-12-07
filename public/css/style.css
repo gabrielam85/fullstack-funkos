@@ -901,6 +901,24 @@ display: none;
 
 /*******  SHOP   *******/
 
+.shop-collection button {
+  padding: var(--spacing-12) var(--spacing-16);
+  border: 1px solid var(--light-grey-solid);
+  background-color: transparent;
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+.shop-collection button:nth-child(1) {
+  background-color: var(--dark-500);
+  color: var(--light-font-solid);
+}
+
+.shop-collection button:nth-child(2) {
+  color: var(--primary-solid);
+  border: 2px solid var(--primary-solid);
+}
+
 .shop-container {
   display: flex;
   justify-content: flex-start;
@@ -1076,6 +1094,9 @@ display: none;
   text-align: center;
   margin: var(--spacing-24) auto;
   padding: var(--spacing-8);
+  display: flex;
+  gap: 8px;
+  justify-content: center;
 }
 
 .filter-icon{
@@ -1664,6 +1685,16 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
    }
 
    /***** SHOP *****/
+
+   .shop-collection form {
+      padding: 0;
+      gap: var(--spacing-4);
+    }
+
+  .shop-collection button {
+    padding: var(--spacing-8) var(--spacing-12);
+  }
+
    .shop-container{
     flex-direction: column;
     margin-top: 0;
