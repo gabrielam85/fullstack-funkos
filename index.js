@@ -31,10 +31,11 @@ const isLogin = (req, res, next) => {
     next();
 };
 
-app.use(express.static('public'));
-
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/src/views'));
+
+app.use(methodOverride("_method"));
+app.use(express.static(path.join(__dirname, "/public")));
 
 // Layout para "/home"
 app.use('/', (req, res, next) => {
