@@ -1526,7 +1526,7 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
 
   .collection__link{
     font-size: var(--font-xsmall);
-    margin: 0 18%;
+    margin: 0 19%;
   }
 
   .collection__content{
@@ -1683,6 +1683,11 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
 
    .edit-images__container{
     flex-direction: column;
+   }
+
+   .edit-package__container{
+    width: 100%;
+    margin-top: var(--spacing-24);
    }
 
    /***** SHOP *****/
@@ -1872,6 +1877,14 @@ i.fa-solid.fa-magnifying-glass.fa-2xs {
 
   .carrito__content-title{
     display: none;
+  }
+
+  .create-images__container{
+    flex-direction: column;
+  }
+
+  .create-images__container .create-item{
+    flex-direction: column;
   }
 }
 

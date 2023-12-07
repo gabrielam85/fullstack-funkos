@@ -115,22 +115,24 @@
         </select>
       </div>
     </section>
-    <section class="create-item">
-      <label class="create-label" for="imagenFront">Imagen Frente:</label>
-      <input
-        type="file"
-        id="imagenFront"
-        name="imagenFront"
-        accept="image/webp"
-      />
-      <label class="create-label" for="imagenBack">Imagen Dorso:</label>
-      <input
-        type="file"
-        id="imagenBack"
-        name="imagenBack"
-        accept="image/webp"
-      />
-    </section>
+    <div class="create-images__container">
+      <section class="create-item">
+        <label class="create-label" for="imagenFront">Imagen Frente:</label>
+        <input
+          type="file"
+          id="imagenFront"
+          name="imagenFront"
+          accept="image/webp"
+        />
+        <label class="create-label" for="imagenBack">Imagen Dorso:</label>
+        <input
+          type="file"
+          id="imagenBack"
+          name="imagenBack"
+          accept="image/webp"
+        />
+      </section>
+    </div>
     <section class="create-actions">
       <input class="create-link" type="submit" value="Agregar Producto" />
       <input
