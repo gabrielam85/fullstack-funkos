@@ -17,14 +17,21 @@
       <li>
         <a class="navbar__link" href="/">INICIO</a>
       </li>
-      <li>
-        <a class="navbar__link" href="/product">PRODUCTOS</a>
-      </li>
-      <li>
-        <a class="navbar__link" href="/category">CATEGORIAS</a>
-      </li>
-      <li class="navbar__item">
-        <a class="navbar__link" href="/licence/">LICENCIAS</a>
+      <li class="navbar__item with_submenu">
+        <a class="navbar__link with_icon" href="/product"
+          >ADMIN <iconify-icon icon="ion:chevron-down"></iconify-icon
+        ></a>
+        <ul class="submenu">
+          <li class="submenu__item">
+            <a href="/category" class="submenu__link">CATEGORIAS</a>
+          </li>
+          <li class="submenu__item">
+            <a href="/licence" class="submenu__link">LICENCIAS</a>
+          </li>
+          <li class="submenu__item">
+            <a href="/product" class="submenu__link">PRODUCTOS</a>
+          </li>
+        </ul>
       </li>
       <li>
         <a class="navbar__link" href="/auth/logout">SALIR</a>
