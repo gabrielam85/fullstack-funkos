@@ -37,7 +37,8 @@ const item = async (req, res) => {
 
         const products = await model.findAll({ 
             attributes: ["id", "nombre", "precio", "altFront", "altBack"],
-            order: [['nombre', 'ASC']]
+            order: [['updatedAt', 'DESC']],
+            limit: 6,
         });
 
         res.render(path.resolve(__dirname, '../views/shop/item'), { products, item });

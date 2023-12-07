@@ -5,7 +5,8 @@ const index = async (req, res) => {
     try{
         const products = await model_productos.findAll({ 
             attributes: ["id", "nombre", "precio", "altFront", "altBack"],
-            order: [['nombre', 'ASC']]
+            order: [['updatedAt', 'DESC']],
+            limit: 6,
         });
 
         res.render(path.resolve(__dirname, '../views/index'), { products });
