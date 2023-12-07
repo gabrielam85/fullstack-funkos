@@ -71,6 +71,10 @@ const cart = async (req, res) => {
 
 const addToCart = async (req, res) => {
     try {
+      if(!req.user){
+          return res.redirect("/auth/login");
+      }
+
       const userId = req.user.id;
       const productId = req.params.id;
       const quantity = req.body.quantity || 1;
